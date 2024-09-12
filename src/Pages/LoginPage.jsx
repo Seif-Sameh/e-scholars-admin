@@ -24,7 +24,7 @@ const LoginPage = () => {
     // }, [])
 
     const handleLogin = () => {
-            const response = axios.post("https://teacher.e-scholars.com/teacher/logging/login.php", { username, password }, {withCredentials: true})
+            const response = axios.post("https://e-scholars.comteacher/logging/login.php", { username, password }, {withCredentials: true})
             .then((res) => {
                 if (response.data.status === 'success') {
                     navigate('/')
