@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
 
     const handleLogOut = () => {
-        const response = axios.post("https://e-scholars.com/teacher/logging/logout.php", {withCredentials: true})
+        const response = axios.post("https://e-scholars.com/teacher/logging/logout.php", {}, {withCredentials: true})
         .then((res) => (res.data))
         .then((data) => {
             if (data.status === 'OK') {
