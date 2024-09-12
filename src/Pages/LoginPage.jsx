@@ -23,12 +23,12 @@ const LoginPage = () => {
     //     })
     // }, [])
 
-    const handleLogin = async (e) => {
+    const handleLogin = () => {
         try {
-            const response = await axios.post("http://localhost/academic/login.php", { username, password }, {withCredentials: true});
+            const response = axios.post("https://teacher.e-scholars.com/teacher/logging/login.php", { username, password }, {withCredentials: true});
             console.log(response);
             if (response.data.status === 'success') {
-                navigate('/student')
+                navigate('/')
             } else {
                 alert(response.data.message);
             }
