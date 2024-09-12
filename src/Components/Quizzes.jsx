@@ -27,7 +27,7 @@ const Quizzes = () => {
     const [includeMode, setIncludeMode] = useState(false)
 
     const requestQuizes = () => {
-        axios.post('http://localhost/academic/admin/quizzes/class_quizzes.php', { grade, section })
+        axios.post('https://e-scholars.com/teacher/quizzes/class_quizzes.php', { grade, section })
             .then((res) => {
                 if (res.data.status === 'OK') {
                     setFound(res.data.found)
@@ -37,7 +37,7 @@ const Quizzes = () => {
             })
     }
     const requestAllQuizzes = () => {
-        const response = axios.post("http://localhost/academic/admin/quizzes/retrieve_quizzes.php")
+        const response = axios.post("https://e-scholars.com/teacher/quizzes/retrieve_quizzes.php")
             .then((res) => (res.data))
             .then((data) => {
                 if (data.status == 'OK') {
@@ -48,7 +48,7 @@ const Quizzes = () => {
             })
     }
     const includeQuizzes = () => {
-        const response = axios.post("http://localhost/academic/admin/quizzes/include_quizzes.php", { grade, section, quizzes: classQuizzes.map((q) => q.quiz_id) })
+        const response = axios.post("https://e-scholars.com/teacher/quizzes/include_quizzes.php", { grade, section, quizzes: classQuizzes.map((q) => q.quiz_id) })
             .then((res) => (res.data))
             .then((data) => {
                 if (data.status == 'OK') {
@@ -57,7 +57,7 @@ const Quizzes = () => {
             })
     }
     const activateQuiz = (quiz_id) => {
-        const response = axios.post("http://localhost/academic/admin/quizzes/activate_quiz.php", { grade, section, quiz_id })
+        const response = axios.post("https://e-scholars.com/teacher/quizzes/activate_quiz.php", { grade, section, quiz_id })
             .then((res) => (res.data))
             .then((data) => {
                 if (data.status == 'OK') {
@@ -66,7 +66,7 @@ const Quizzes = () => {
             })
     }
     const deactivateQuiz = (quiz_id) => {
-        const response = axios.post("http://localhost/academic/admin/quizzes/deactivate_quiz.php", { grade, section, quiz_id })
+        const response = axios.post("https://e-scholars.com/teacher/quizzes/deactivate_quiz.php", { grade, section, quiz_id })
             .then((res) => (res.data))
             .then((data) => {
                 if (data.status == 'OK') {

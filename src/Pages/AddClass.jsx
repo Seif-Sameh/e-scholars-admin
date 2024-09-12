@@ -15,7 +15,7 @@ const AddClass = () => {
   const [classes, setClasses] = useState([])
 
   const addGrade = (grade, section) => {
-    const response = axios.post("http://localhost/academic/admin/classes/add_grade.php", { grade, section })
+    const response = axios.post("https://e-scholars.com/teacher/classes/add_grade.php", { grade, section })
       .then((res) => (res.data))
       .then((data) => {
         if (data.status == 'OK') {
@@ -31,7 +31,7 @@ const AddClass = () => {
   }
 
   const requestGrades = () => {
-    const response = axios.post("http://localhost/academic/admin/classes/current_classes.php")
+    const response = axios.post("https://e-scholars.com/teacher/classes/current_classes.php")
       .then((res) => (res.data))
       .then((data) => {
         const classes = data.classes

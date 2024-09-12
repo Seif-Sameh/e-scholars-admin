@@ -13,7 +13,7 @@ const Responses = ({ grade, section }) => {
 
 
     const requestResponses = () => {
-        const response = axios.post("http://localhost/academic/admin/quizzes/quiz_attendance.php", { grade: grade, section: section, quiz_id: Number(params.quiz_id) })
+        const response = axios.post("https://e-scholars.com/teacher/quizzes/quiz_attendance.php", { grade: grade, section: section, quiz_id: Number(params.quiz_id) })
             .then((res) => res.data)
             .then((data) => {
                 if (data.status == 'OK') {

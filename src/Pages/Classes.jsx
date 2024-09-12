@@ -19,7 +19,7 @@ const Classes = () => {
     const [selected, setSelected] = useState('')
 
     const requestGrades = () => {
-        const response = axios.post("http://localhost/academic/admin/classes/current_classes.php")
+        const response = axios.post("https://e-scholars.com/teacher/classes/current_classes.php")
             .then((res) => (res.data))
             .then((data) => {
                 if (data.status == 'OK') {
@@ -30,7 +30,7 @@ const Classes = () => {
             })
     }
     const deleteGrade = (grade, section) => {
-        const response = axios.post("http://localhost/academic/admin/classes/remove_grade.php", { grade, section })
+        const response = axios.post("https://e-scholars.com/teacher/classes/remove_grade.php", { grade, section })
             .then((res) => {
                 if (res.data.status == 'OK') {
                     requestGrades()

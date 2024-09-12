@@ -31,7 +31,7 @@ const AddClass = () => {
     if (type == 'YouTube') {
       file.append('url', material)
 
-      const response = axios.post("http://localhost/academic/admin/materials/push_materials.php", file, {
+      const response = axios.post("https://e-scholars.com/teacher/materials/push_materials.php", file, {
         headers: {
           "Content-Type": 'multipart/form-data'
         }
@@ -52,7 +52,7 @@ const AddClass = () => {
     else {
       file.append('file', material)
 
-      const response = axios.post("http://localhost/academic/admin/materials/push_materials.php", file, {
+      const response = axios.post("https://e-scholars.com/teacher/materials/push_materials.php", file, {
         headers: {
           "Content-Type": 'multipart/form-data'
         }
@@ -90,7 +90,7 @@ const AddClass = () => {
                 <>
                   <p className='text-3xl font-semibold text-[#054bb4]'>Add a Material</p>
                   <div>
-                    <form action="http://localhost/academic/admin/materials/push_materials.php" method='POST' className='flex flex-col gap-4'
+                    <form className='flex flex-col gap-4'
                       onSubmit={(e) => {
                         e.preventDefault()
                         if (

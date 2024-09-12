@@ -21,7 +21,7 @@ const AddSession = () => {
 
 
   const addSchedule = (grade, section) => {
-    const response = axios.post("http://localhost/academic/admin/classes/set_schedule.php", { grade: params.grade, section: params.section, days: [{ day: day, from: from, to: to }] })
+    const response = axios.post("https://e-scholars.com/teacher/classes/set_schedule.php", { grade: params.grade, section: params.section, days: [{ day: day, from: from, to: to }] })
       .then((res) => (res.data))
       .then((data) => {
         if (data.status == 'OK') {

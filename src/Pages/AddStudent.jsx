@@ -19,7 +19,7 @@ const AddClass = () => {
   
 
   const addStudent = () => {
-    const response = axios.post("http://localhost/academic/admin/students/add_student.php", {name: name,  grade:params.grade, section: params.section, phone_number: phoneNumber })
+    const response = axios.post("https://e-scholars.com/teacher/students/add_student.php", {name: name,  grade:params.grade, section: params.section, phone_number: phoneNumber })
       .then((res) => (res.data))
       .then((data) => {
         if (data.status == 'OK') {

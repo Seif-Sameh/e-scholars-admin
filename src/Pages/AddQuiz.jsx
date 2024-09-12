@@ -25,7 +25,7 @@ const AddQuiz = () => {
       return;
     }
 
-    questions.length !== 0 ? axios.post("http://localhost/academic/admin/quizzes/add_quiz.php", { title, description })
+    questions.length !== 0 ? axios.post("https://e-scholars.com/teacher/quizzes/add_quiz.php", { title, description })
       .then((res) => res.data)
       .then((data) => {
         console.log(data);
@@ -44,7 +44,7 @@ const AddQuiz = () => {
   };
 
   const addQuestions = (quiz_id) => {
-    axios.post("http://localhost/academic/admin/quizzes/add_question.php", { quiz_id: Number(quiz_id), questions })
+    axios.post("https://e-scholars.com/teacher/quizzes/add_question.php", { quiz_id: Number(quiz_id), questions })
       .then((res) => res.data)
       .then((data) => {
         if (data.status == 'OK') {

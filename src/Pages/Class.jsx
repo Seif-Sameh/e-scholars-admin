@@ -14,7 +14,7 @@ const Class = () => {
     const section = params['section']
 
     const getCredentials = () => {
-        axios.post("http://localhost/academic/admin/credentials/get_class_credentials.php", 
+        axios.post("https://e-scholars.com/teacher/credentials/get_class_credentials.php", 
         { grade: grade, section: section }, 
         { responseType: 'blob' } // Important for handling binary data
         ).then(response => {

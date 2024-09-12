@@ -24,7 +24,7 @@ const Materials = ({ grade, section }) => {
     const [selected, setSelected] = useState('')
 
     const requestMaterials = () => {
-        const response = axios.post("http://localhost/academic/admin/materials/class_materials.php", { grade, section })
+        const response = axios.post("https://e-scholars.com/teacher/materials/class_materials.php", { grade, section })
             .then((res) => (res.data))
             .then((data) => {
                 if (data.status == 'OK') {
@@ -34,7 +34,7 @@ const Materials = ({ grade, section }) => {
             })
     }
     const deleteMaterial = (item_id) => {
-        const response = axios.post("http://localhost/academic/admin/materials/remove_material.php", { grade, section, item_id })
+        const response = axios.post("https://e-scholars.com/teacher/materials/remove_material.php", { grade, section, item_id })
             .then((res) => (res.data))
             .then((data) => {
                 if (data.status == 'OK') {

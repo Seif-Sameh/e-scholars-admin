@@ -18,7 +18,7 @@ const Schedule = ({ grade, section }) => {
     const [selected, setSelected] = useState('')
 
     const requestSchedule = () => {
-        const response = axios.post("http://localhost/academic/admin/classes/class_schedule.php", { grade, section })
+        const response = axios.post("https://e-scholars.com/teacher/classes/class_schedule.php", { grade, section })
             .then((res) => (res.data))
             .then((data) => {
                 if (data.status == 'OK') {
@@ -28,7 +28,7 @@ const Schedule = ({ grade, section }) => {
             })
     }
     const deleteSchedule = (id) => {
-        const response = axios.post("http://localhost/academic/admin/classes/remove_schedule.php", { id })
+        const response = axios.post("https://e-scholars.com/teacher/classes/remove_schedule.php", { id })
             .then((res) => (res.data))
             .then((data) => {
                 if (data.status == 'OK') {

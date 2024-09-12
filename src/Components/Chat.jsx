@@ -20,7 +20,7 @@ const Chat = ({chatParams, New, setNew, setEditing, edited, setEdited, inputMess
     const chat = useRef()
 
     const fetchNotifications = () =>{
-        const response = axios.post("http://localhost/academic/admin/notifications/class_notifications.php", { grade: chatParams[0], section: chatParams[1] })
+        const response = axios.post("https://e-scholars.com/teacher/notifications/class_notifications.php", { grade: chatParams[0], section: chatParams[1] })
         .then((res) => (res.data))
         .then((data) => {
             setFound( data.found)
@@ -28,7 +28,7 @@ const Chat = ({chatParams, New, setNew, setEditing, edited, setEdited, inputMess
         })
     }
     const deleteNotification = (grade, section, id) =>{
-        const response = axios.post("http://localhost/academic/admin/notifications/remove_notification.php", { grade: grade, section: section, id: id })
+        const response = axios.post("https://e-scholars.com/teacher/notifications/remove_notification.php", { grade: grade, section: section, id: id })
         .then((res) => (res.data))
         .then((data) => {
             if(data.status == 'OK'){
@@ -38,7 +38,7 @@ const Chat = ({chatParams, New, setNew, setEditing, edited, setEdited, inputMess
         })
     }
     const updateNotification = (grade, section, id, message) =>{
-        const response1 = axios.post("http://localhost/academic/admin/notifications/update_notification.php", { grade: grade, section: section, id: id , message: message  ,expire_date: expirationDate})
+        const response1 = axios.post("https://e-scholars.com/teacher/notifications/update_notification.php", { grade: grade, section: section, id: id , message: message  ,expire_date: expirationDate})
         .then((res) => (res.data))
         .then((data) => {
             if(data.status == 'OK'){

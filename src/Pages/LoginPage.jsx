@@ -24,17 +24,17 @@ const LoginPage = () => {
     // }, [])
 
     const handleLogin = () => {
-        try {
-            const response = axios.post("https://teacher.e-scholars.com/teacher/logging/login.php", { username, password }, {withCredentials: true});
-            console.log(response);
-            if (response.data.status === 'success') {
-                navigate('/')
-            } else {
-                alert(response.data.message);
-            }
-        } catch (error) {
-            console.error('There was an error logging in!', error);
-        }
+            const response = axios.post("https://teacher.e-scholars.com/teacher/logging/login.php", { username, password }, {withCredentials: true})
+            .then((res) => {
+                if (response.data.status === 'success') {
+                    navigate('/')
+                } else {
+                    alert(response.data.message);
+                }
+            })
+            .catch((error) => {
+                console.error('There was an error logging in!', error);
+            })
     };
 
     

@@ -12,7 +12,7 @@ const MaterialPage = () => {
     const {state} = location
 
     const requestMaterial = () => {
-        axios.post("http://localhost/academic/admin/materials/view_materials.php", {
+        axios.post("https://e-scholars.com/teacher/materials/view_materials.php", {
             grade: params.grade,
             section: params.section,
             item_id: params.item_id

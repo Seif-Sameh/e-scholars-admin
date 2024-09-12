@@ -31,7 +31,7 @@ function App() {
           <Route path='/class/:grade/:section/add_session' element={<AddSession />} />
           <Route path='/class/:grade/:section/add_student' element={<AddStudent />} />
           <Route path='/class/:grade/:section/add_material' element={<AddMaterial />} />
-          <Route path='/ class/:grade/:section/add_task' element={<AddTask />} />
+          <Route path='/class/:grade/:section/add_task' element={<AddTask />} />
         </Route>
       </Routes>
     </>

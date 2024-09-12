@@ -33,7 +33,7 @@ const StudentInfo = () => {
     console.log(updatedDate)
 
     const requestAttendance = () => {
-        const response = axios.post("http://localhost/academic/admin/student_page/retrieve_attendance.php", { grade: grade, section: section, student_name: state.student_name })
+        const response = axios.post("https://e-scholars.com/teacher/student_page/retrieve_attendance.php", { grade: grade, section: section, student_name: state.student_name })
             .then((res) => res.data)
             .then((data) => {
                 if (data.status == 'OK') {
@@ -46,7 +46,7 @@ const StudentInfo = () => {
     }
     const updateAttendance = (id) => {
         updatedAttendance || updatedDate ? 
-        axios.post("http://localhost/academic/admin/student_page/update_attendance.php", { grade: grade, section: section, id: id, session_date: updatedDate, attendance: updatedAttendance })
+        axios.post("https://e-scholars.com/teacher/student_page/update_attendance.php", { grade: grade, section: section, id: id, session_date: updatedDate, attendance: updatedAttendance })
             .then((res) => res.data)
             .then((data) => {
                 if (data.status == 'OK') {
@@ -60,7 +60,7 @@ const StudentInfo = () => {
     }
 
     const requestQuizzes = () => {
-        const response = axios.post("http://localhost/academic/admin/student_page/student_marks.php", { grade: grade, section: section, student_name: state.student_name })
+        const response = axios.post("https://e-scholars.com/teacher/student_page/student_marks.php", { grade: grade, section: section, student_name: state.student_name })
             .then((res) => res.data)
             .then((data) => {
                 if (data.status == 'OK') {
@@ -73,7 +73,7 @@ const StudentInfo = () => {
     }
     const addBonus = () => {
         if(!isNaN(bonus)){
-            const response = axios.post("http://localhost/academic/admin/student_page/give_bonus.php", { grade: grade, section: section, student_name: state.student_name, bonus: bonus })
+            const response = axios.post("https://e-scholars.com/teacher/student_page/give_bonus.php", { grade: grade, section: section, student_name: state.student_name, bonus: bonus })
             .then((res) => res.data)
             .then((data) => {
                 if (data.status == 'OK') {
