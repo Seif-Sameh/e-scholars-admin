@@ -19,7 +19,6 @@ const MaterialPage = () => {
         }, {withCredentials: true})
         .then((res) => res.data)
         .then((data) => {
-            console.log(data)
             if (data.status == 'OK') {
                 setUrl(data.path);
             } else {
@@ -28,7 +27,6 @@ const MaterialPage = () => {
             setLoading(false);
         })
         .catch((err) => {
-            console.error(err);
             setError('An error occurred while fetching the material');
             setLoading(false);
         });

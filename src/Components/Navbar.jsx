@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 const Navbar = () => {
 
     const navigate = useNavigate()
-    
+
     const handleLogOut = () => {
         const response = axios.post("https://e-scholars.com/teacher/logging/logout.php", {}, {withCredentials: true})
         .then((res) => (res.data))
@@ -18,7 +18,7 @@ const Navbar = () => {
             }
         })
         .catch((error) => {
-            console.error('There was an error logging in!', error);
+            console.error('There was an error logging out!', error);
         })
     }
 

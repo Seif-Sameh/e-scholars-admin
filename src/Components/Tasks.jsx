@@ -125,7 +125,6 @@ const Tasks = ({ grade, section }) => {
                                                                             editTask(item.id, expireDate, item.task)
                                                                         }
                                                                         else if (task != '' && expireDate == '') {
-                                                                            console.log('tdrfygjhkj')
                                                                             editTask(item.id, date.getTime()/1000, task)
                                                                         }
                                                                         else {

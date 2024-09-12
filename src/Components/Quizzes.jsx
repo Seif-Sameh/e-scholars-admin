@@ -33,7 +33,6 @@ const Quizzes = () => {
                     setFound(res.data.found)
                     res.data.found && setClassQuizzes(res.data.class_quizzes)
                 }
-                console.log(res.data)
             })
     }
     const requestAllQuizzes = () => {
@@ -41,7 +40,6 @@ const Quizzes = () => {
             .then((res) => (res.data))
             .then((data) => {
                 if (data.status == 'OK') {
-                    console.log(data)
                     setAllQuizzes(data.quizzes)
                     setIncludeMode(true)
                 }
@@ -80,7 +78,6 @@ const Quizzes = () => {
         requestQuizes()
     }, [])
 
-    console.log(classQuizzes)
 
     return (
         <>

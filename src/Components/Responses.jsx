@@ -20,8 +20,6 @@ const Responses = ({ grade, section }) => {
                     setAbsence(data.absent)
                     setAttendance(data.attended)
                     setFound(data.found)
-                    console.log(attendance)
-                    console.log(absence)
                 }
             })
     }

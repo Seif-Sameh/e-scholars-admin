@@ -19,8 +19,6 @@ const AddClass = () => {
 
   const params = useParams()
 
-  console.log(material)
-
   const addMaterial = () => {
     const file = new FormData()
     file.append('grade', params.grade)

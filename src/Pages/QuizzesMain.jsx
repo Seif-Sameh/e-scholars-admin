@@ -24,7 +24,6 @@ const QuizzesMain = () => {
             .then((res) => (res.data))
             .then((data) => {
                 if (data.status == 'OK') {
-                    console.log(data)
                     setFound(data.found)
                     setQuizzes(data.quizzes)
                 }

@@ -24,9 +24,6 @@ const ViewQuiz = () => {
   const [quizResToggle, setQuizResToggle] = useState(false);
 
   const { state } = useLocation()
-
-  console.log(state)
-
   const params = useParams()
 
 
@@ -40,13 +37,11 @@ const ViewQuiz = () => {
     questions.length !== 0 ? axios.post("https://e-scholars.com/teacher/quizzes/update_quiz.php", { title, description, quiz_id: Number(params.quiz_id)}, {withCredentials: true})
       .then((res) => res.data)
       .then((data) => {
-        console.log(data)
         if (data.status == 'OK') {
           questions.length !== 0 && addQuestions(data.quiz_id)
         }
       })
       .catch((err) => {
-        console.log(err);
         if (err.response.data.status === 'error' && err.response.data.message === 'the same title already exists') {
           setAlreadyExists(true);
         }
@@ -81,9 +76,6 @@ const ViewQuiz = () => {
   useEffect(() => {
     window.scrollTo(top)
   }, [alreadyExists, emptyTitle, emptyDescription])
-
-  console.log(questionTypes)
-  console.log(questions)
 
   return (
     <div className='w-full min-h-screen flex flex-col items-center bg-cover relative bg-[#658cc2]'>

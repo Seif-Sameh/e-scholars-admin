@@ -78,7 +78,6 @@ const Students = ({ grade, section }) => {
             .then((res) => res.data)
             .then((data) => {
                 if (data.status === 'OK') {
-                    console.log("Attendance submitted successfully");
                     setShowAttendanceSuccess(true);
                     setTimeout(() => setShowAttendanceSuccess(false), 3000);
                     setAttendanceMode(false);

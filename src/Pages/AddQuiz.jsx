@@ -28,13 +28,11 @@ const AddQuiz = () => {
     questions.length !== 0 ? axios.post("https://e-scholars.com/teacher/quizzes/add_quiz.php", { title, description }, {withCredentials: true})
       .then((res) => res.data)
       .then((data) => {
-        console.log(data);
         if (data.status === 'OK') {
           questions.length !== 0 && addQuestions(data.quiz_id);
         }
       })
       .catch((err) => {
-        console.log(err);
         if (err.response.data.status === 'error' && err.response.data.message === 'The same title exists') {
           setAlreadyExists(true);
         }
@@ -57,7 +55,6 @@ const AddQuiz = () => {
     window.scrollTo(top)
   }, [alreadyExists, emptyTitle, emptyDescription])
 
-  console.log(questions)
   return (
     <div className='w-full min-h-screen flex flex-col gap-10 items-center bg-cover relative bg-[#658cc2]'>
       <div className='w-full flex justify-center pt-[90px] pb-[50px] px-4 gap-8 items-center z-10'>

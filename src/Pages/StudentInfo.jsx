@@ -27,17 +27,11 @@ const StudentInfo = () => {
     const [bonus, setBonus] = useState('')
     const [invalideBonus, setInvalidBonus] = useState(false)
 
-    
-    
-    console.log(updatedAttendance)
-    console.log(updatedDate)
-
     const requestAttendance = () => {
         const response = axios.post("https://e-scholars.com/teacher/student_page/retrieve_attendance.php", { grade: grade, section: section, student_name: state.student_name }, {withCredentials: true})
             .then((res) => res.data)
             .then((data) => {
                 if (data.status == 'OK') {
-                    console.log(data)
                     setFound(data.found)
                     setAttendance(data.attendance)
                     setMonth(data.month)
@@ -64,7 +58,6 @@ const StudentInfo = () => {
             .then((res) => res.data)
             .then((data) => {
                 if (data.status == 'OK') {
-                    console.log(data)
                     setQuizzesFound(data.found)
                     setScores(data.scores)
                     setTotalMarks(data.total_marks)
