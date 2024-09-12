@@ -25,11 +25,12 @@ const LoginPage = () => {
 
     const handleLogin = () => {
             const response = axios.post("https://e-scholars.com/teacher/logging/login.php", { username, password }, {withCredentials: true})
-            .then((res) => {
-                if (response.data.status === 'success') {
+            .then((res) => (res.data))
+            .then((data) => {
+                if (data.status === 'OK') {
                     navigate('/')
                 } else {
-                    alert(response.data.message);
+                    alert(data.message);
                 }
             })
             .catch((error) => {
