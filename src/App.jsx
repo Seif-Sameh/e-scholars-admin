@@ -16,7 +16,7 @@ import StudentInfo from './Pages/StudentInfo'
 function App() {
 
   return (
-    <>
+    <> 
       <Routes>
         <Route path='/login' element={<LoginPage />} />
         <Route path='/' element={<AdminDashboard />}>
