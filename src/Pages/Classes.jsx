@@ -59,7 +59,7 @@ const Classes = () => {
                     </button>
                 </Link>
             </div>
-            <div className='z-10 container w-full h-screen flex flex-col  pb-[20px] px-6 gap-8 items-center overflow-y-scroll no-scrollbar'>
+            <div className='z-10 container w-full h-screen flex flex-col  pb-[20px] px-6 gap-4 items-center overflow-y-scroll no-scrollbar'>
                 <div className='flex w-full justify-end items-center'>
                     <Link to={'/add_class'}>
                         <button className='text-[#054bb4] ml-5 max-md:ml-1 w-[50px] h-[50px] rounded-full bg-white flex gap-2 items-center justify-center'>
