@@ -41,7 +41,7 @@ const Responses = ({ grade, section }) => {
                                 <tr >
                                     <th className='text-center w-[60px] p-0 text-xl border-r-[6px]  border-white max-md:text-base text-white rounded-lg'> <div className='bg-[#054bb4] py-2 w-full h-full rounded-tl-lg'>No.</div></th>
                                     <th className='text-start  p-0 text-xl max-md:text-base  text-white rounded-md'> <div className='bg-[#054bb4] py-2 pl-4 w-full h-full '>Name</div></th>
-                                    <th className='text-center p-0 text-xl max-md:text-base  text-white rounded-md'> <div className='bg-[#054bb4] py-2 w-full h-full rounded-tr-lg'>Marks</div></th>
+                                    <th className='text-center p-0 text-xl max-md:text-base  text-white rounded-md'> <div className='bg-[#054bb4] py-2 pr-4 w-full h-full rounded-tr-lg'>Marks</div></th>
                                 </tr>
                             </thead>
                             <tbody >
