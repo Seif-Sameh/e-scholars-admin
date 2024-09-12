@@ -3,7 +3,7 @@ import { FaPlus } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { FaTrashAlt } from "react-icons/fa";
 
-const RearrangeQuestion = ({ id, questions, setQuestions, questionTypes, setQuestionTypes, setUpdating, setValidationErrors }) => {
+const RearrangeQuestion = ({ index, id, questions, setQuestions, questionTypes, setQuestionTypes, setUpdating, setValidationErrors }) => {
     const [options, setOptions] = useState([]);
     const [optionsCount, setOptionsCount] = useState(0);
 
@@ -47,7 +47,7 @@ const RearrangeQuestion = ({ id, questions, setQuestions, questionTypes, setQues
         <>
             <div className='flex flex-col gap-1'>
                 <div className='w-full flex gap-6 justify-between'>
-                    <p className='font-medium'>Re-arrange the following:</p>
+                    <p className='font-medium'>{index + 1}&#41; Re-arrange the following:</p>
                     <div className='flex justify-center items-center pr-2 text-red-500 cursor-pointer'
                         onClick={() => {
                             DeleteQuestion();

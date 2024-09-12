@@ -44,7 +44,7 @@ const LoginPage = () => {
             <div className='flex flex-row-reverse w-2/3 md:h-3/4 max-sm:w-5/6 rounded-md max-md:flex-col-reverse'>
                 <div className='w-full md:w-1/2 h-full bg-white  flex flex-col justify-center md:rounded-r-md max-md:rounded-b-md p-5'>
                     <div className='text-center font-bold text-[30px] mb-10'>
-                        <h1 className='text-[#054bb4]'>Welcome to Academia</h1>
+                        <h1 className='text-[#054bb4]'>Welcome to E-Scholars</h1>
                     </div>
                     
                     <form  className='flex flex-col mb-6'
@@ -72,7 +72,7 @@ const LoginPage = () => {
                         <input type="submit" value="Login" 
                         className='bg-[#054bb4] h-[50px] rounded-md text-white font-bold cursor-pointer mt-4' />
                     </form>
-
+                    <p className='text-lg font-semibold text-[#054bb4] mt-6'>Mrs/ Randa Mohamed</p>
                 </div>
                 <div className='md:w-1/2 w-full md:h-full h-1/3'>
                     <img src={image1} alt="" className='w-full h-full max-md:hidden rounded-l-md object-cover'/>

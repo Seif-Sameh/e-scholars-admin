@@ -11,7 +11,7 @@ import QuizzesMain from './Pages/QuizzesMain'
 import AddQuiz from './Pages/AddQuiz'
 import ViewQuiz from './Pages/ViewQuiz'
 import AddSession from './Pages/AddSession'
-import MaterialPage from './MaterialPage'
+import MaterialPage from './Pages/MaterialPage'
 import StudentInfo from './Pages/StudentInfo'
 function App() {
 

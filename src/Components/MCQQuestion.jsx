@@ -5,7 +5,7 @@ import { IoMdClose } from "react-icons/io";
 import { FaTrashAlt } from "react-icons/fa";
 import { ImRadioChecked } from "react-icons/im";
 
-const MCQQuestion = ({ id, questions, setQuestions, questionTypes, setQuestionTypes, setUpdating, setValidationErrors }) => {
+const MCQQuestion = ({ index, id, questions, setQuestions, questionTypes, setQuestionTypes, setUpdating, setValidationErrors }) => {
     const [question, setQuestion] = useState('');
     const [options, setOptions] = useState([]);
     const [answer, setAnswer] = useState('');
@@ -54,12 +54,15 @@ const MCQQuestion = ({ id, questions, setQuestions, questionTypes, setQuestionTy
         <>
             <div className='flex flex-col gap-3'>
                 <div className='w-full flex gap-6 justify-between'>
+                    <div className='flex gap-1'>
+                    <span>{index +1}&#41; </span>
                     <input type="text" placeholder='Question' value={question} className='w-full h-[50px] text-lg px-3 rounded-md bg-slate-100 outline-none border-b-2 border-white hover:border-b-slate-400 focus:border-b-[#054bb4]'
                         onChange={(e) => {
                             setQuestion(e.target.value)
                             setUpdating && setUpdating(true)
                         }}
-                    />
+                        />
+                    </div>
                     <div className='flex justify-center items-center pr-2 text-red-500 cursor-pointer' onClick={() => {
                         DeleteQuestion()
                         setUpdating && setUpdating(true)

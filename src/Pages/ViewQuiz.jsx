@@ -135,13 +135,13 @@ const ViewQuiz = () => {
                             />
                           </div>
 
-                          {questionTypes.map((ques) => (
+                          {questionTypes.map((ques, index) => (
                             <div key={ques.id} className='w-full flex flex-col gap-4 group border-l-[6px] border-white has-[:focus]:border-l-[#054bb4] pl-4 py-4 pr-5 rounded-md'>
                               {ques.type === 'MCQ' && (
-                                <MCQQuestion id={ques.id} questions={questions} setQuestions={setQuestions} questionTypes={questionTypes} setQuestionTypes={setQuestionTypes} setUpdating={setUpdating} setValidationErrors={setValidationErrors} />
+                                <MCQQuestion index={index} id={ques.id} questions={questions} setQuestions={setQuestions} questionTypes={questionTypes} setQuestionTypes={setQuestionTypes} setUpdating={setUpdating} setValidationErrors={setValidationErrors} />
                               )}
                               {ques.type === 'Rearrange' && (
-                                <RearrangeQuestion id={ques.id} questions={questions} setQuestions={setQuestions} questionTypes={questionTypes} setQuestionTypes={setQuestionTypes} setUpdating={setUpdating} setValidationErrors={setValidationErrors} />
+                                <RearrangeQuestion index={index} id={ques.id} questions={questions} setQuestions={setQuestions} questionTypes={questionTypes} setQuestionTypes={setQuestionTypes} setUpdating={setUpdating} setValidationErrors={setValidationErrors} />
                               )}
                             </div>
                           ))}
