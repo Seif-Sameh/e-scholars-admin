@@ -52,7 +52,7 @@ const Responses = ({ grade, section }) => {
                                                 <td className='text-center border-y-[6px] border-r-[6px] border-white bg-[#054bb4] rounded-l-lg text-white font-bold  py-2 text-lg max-md:text-base'>{index + 1}</td>
                                                 <td className='text-start border-y-[6px] border-white pl-4 py-2 text-lg max-md:text-base '>
                                                     <p>{item[0]}</p>
-                                                    <p className='text-sm text-slate-600'>submitted {item[1].slice(0, 10)} at {item[1].slice(11, 16)}</p>
+                                                    <p className='text-sm text-slate-600'>Submitted on {item[1].slice(0, 10)} at {item[1].slice(11, 16)}</p>
                                                 </td>
                                                 <td className='text-center border-y-[6px] border-white px-2 py-2 text-lg max-md:text-base rounded-r-lg'>{item[2]}</td>
                                             </tr>
