@@ -75,7 +75,7 @@ const AddClass = () => {
                       }}
                     />
                     {errorMessage != '' && <p className='text-red-600 text-sm text-center'>{errorMessage}</p>}
-                    <input type="submit" className='bg-[#054bb4] font-bold text-white py-2 rounded-full mt-4' value={'Add'} />
+                    <input type="submit" className='bg-[#054bb4] font-bold text-white py-2 rounded-full mt-4 cursor-pointer' value={'Add'} />
                   </form>
                 </div>
               </>

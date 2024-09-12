@@ -80,7 +80,7 @@ const AddClass = () => {
 
                       {/* {invalidType && <p className='text-red-600 text-sm text-center'>Invalid type. Please choose the right document format.</p>} */}
                       {/* {errorMessage != '' && <p className='text-red-600 text-sm text-center'>{errorMessage}</p>} */}
-                      <input type="submit" className='bg-[#054bb4] font-bold text-white py-2 rounded-full mt-4' value={'Submit'} />
+                      <input type="submit" className='bg-[#054bb4] font-bold text-white py-2 rounded-full mt-4 cursor-pointer' value={'Submit'} />
                     </form>
                   </div>
                 </>
