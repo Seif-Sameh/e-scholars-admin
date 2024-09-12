@@ -44,7 +44,7 @@ const AddSession = () => {
             addedSuccess ?
               (
                 <div className='flex justify-center items-center py-6'>
-                  <div className='flex flex-col items-center gap-6 text-2xl text-[#054bb4] font-bold'>
+                  <div className='flex flex-col items-center justify-center gap-6 text-2xl text-[#054bb4] font-bold'>
                     <GoCheckCircleFill size={70} />
                     <p>Session Added Successfully</p>
                   </div>

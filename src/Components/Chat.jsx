@@ -119,12 +119,14 @@ const Chat = ({chatParams, New, setNew, setEditing, edited, setEdited, inputMess
                                 <div className='absolute top-[5%] right-[110%] bg-slate-200 py-2 text-base font-light flex flex-col gap-2 rounded-md select-none z-50'>
                                     <button className='flex items-center gap-2  px-3 cursor-pointer'
                                         onClick={() => {
+                                            const date = new Date(item.Expire_date * 1000)
                                             setShowOptions(false)
                                             setEditing(true)
                                             setSelectDate(true)
                                             setExpirationDate(item.Expire_date)
                                             setMessageData([item.id, item.notification, item.Expire_date])
                                             inputMessageRef.current.value = item.notification
+                                            dateRef.current.defaultValue = `${date.getFullYear()}-${date.getMonth() <=9 ? `0${date.getMonth()+1}` : date.getMonth()}-${date.getDate()}`
                                         }}
                                     >
                                         <MdEdit />

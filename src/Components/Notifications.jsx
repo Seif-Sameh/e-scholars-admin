@@ -120,7 +120,7 @@ const Notifications = () => {
                     </div>
 
                 ) : (
-                    <div className='w-[300px] max-sm:w-[250px] h-[500px] fixed z-[200] bottom-0 right-5 bg-white rounded-t-md flex flex-col justify-between'>
+                    <div className='w-[300px] max-sm:w-[250px] sm:h-[500px] max-sm:h-[300px] fixed z-[200] bottom-0 right-5 bg-white rounded-t-md flex flex-col justify-between shadow-lg'>
                         <div className='h-[45px] py-2 px-4 flex justify-between items-center'>
                             <p className='text-[#054bb4] font-semibold text-lg'>
                                 Notifications
