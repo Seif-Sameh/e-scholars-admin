@@ -20,7 +20,7 @@ const QuizzesMain = () => {
     const [selected, setSelected] = useState('')
 
     const requestQuizzes = () => {
-        const response = axios.post("https://e-scholars.com/teacher/quizzes/retrieve_quizzes.php")
+        const response = axios.post("https://e-scholars.com/teacher/quizzes/retrieve_quizzes.php", {}, {withCredentials: true})
             .then((res) => (res.data))
             .then((data) => {
                 if (data.status == 'OK') {
@@ -32,7 +32,7 @@ const QuizzesMain = () => {
     }
 
     const deleteQuiz = (id, title) => {
-        const response = axios.post("https://e-scholars.com/teacher/quizzes/remove_quiz.php", {quiz_id: id, title})
+        const response = axios.post("https://e-scholars.com/teacher/quizzes/remove_quiz.php", {quiz_id: id, title}, {withCredentials: true})
             .then((res) => (res.data))
             .then((data) => {
                 if (data.status == 'OK') {

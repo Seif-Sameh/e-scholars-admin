@@ -20,7 +20,7 @@ const AddClass = () => {
 
   const addTask= () => {
 
-    const response = axios.post("https://e-scholars.com/teacher/tasks/push_tasks.php", { grade: params.grade, section: params.section, category: type, task: title, expire_date: expiration})
+    const response = axios.post("https://e-scholars.com/teacher/tasks/push_tasks.php", { grade: params.grade, section: params.section, category: type, task: title, expire_date: expiration}, {withCredentials: true})
       .then((res) => (res.data))
       .then((data) => {
         if (data.status == 'OK') {

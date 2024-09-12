@@ -24,7 +24,7 @@ const Tasks = ({ grade, section }) => {
 
 
     const requestTasks = () => {
-        const response = axios.post("https://e-scholars.com/teacher/tasks/class_tasks.php", { grade, section })
+        const response = axios.post("https://e-scholars.com/teacher/tasks/class_tasks.php", { grade, section }, {withCredentials: true})
             .then((res) => (res.data))
             .then((data) => {
                 if (data.status == 'OK') {
@@ -34,7 +34,7 @@ const Tasks = ({ grade, section }) => {
             })
     }
     const deleteTasks = (id) => {
-        const response = axios.post("https://e-scholars.com/teacher/tasks/remove_task.php", { grade, section, id })
+        const response = axios.post("https://e-scholars.com/teacher/tasks/remove_task.php", { grade, section, id }, {withCredentials: true})
             .then((res) => (res.data))
             .then((data) => {
                 if (data.status == 'OK') {
@@ -44,7 +44,7 @@ const Tasks = ({ grade, section }) => {
             })
     }
     const editTask = (id, expire_date, task) => {
-        const response = axios.post("https://e-scholars.com/teacher/tasks/update_task.php", { grade, section, id, expire_date, task })
+        const response = axios.post("https://e-scholars.com/teacher/tasks/update_task.php", { grade, section, id, expire_date, task }, {withCredentials: true})
             .then((res) => (res.data))
             .then((data) => {
                 if (data.status == 'OK') {

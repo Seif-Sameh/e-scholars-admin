@@ -16,7 +16,7 @@ const MaterialPage = () => {
             grade: params.grade,
             section: params.section,
             item_id: params.item_id
-        })
+        }, {withCredentials: true})
         .then((res) => res.data)
         .then((data) => {
             console.log(data)

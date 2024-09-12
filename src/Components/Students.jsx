@@ -22,7 +22,7 @@ const Students = ({ grade, section }) => {
     const [showAttendanceSuccess, setShowAttendanceSuccess] = useState(false);
 
     const requestStudents = () => {
-        const response = axios.post("https://e-scholars.com/teacher/students/retrieve_students.php", { grade: grade, section: section })
+        const response = axios.post("https://e-scholars.com/teacher/students/retrieve_students.php", { grade: grade, section: section }, {withCredentials: true})
             .then((res) => res.data)
             .then((data) => {
                 if (data.status == 'OK') {
@@ -37,7 +37,7 @@ const Students = ({ grade, section }) => {
     }, [])
 
     const activateStudent = (name) => {
-        const response = axios.post("https://e-scholars.com/teacher/students/activate_student.php", { name: name, grade: grade, section: section })
+        const response = axios.post("https://e-scholars.com/teacher/students/activate_student.php", { name: name, grade: grade, section: section }, {withCredentials: true})
             .then((res) => res.data)
             .then((data) => {
                 if (data.status == 'OK') {
@@ -46,7 +46,7 @@ const Students = ({ grade, section }) => {
             })
     }
     const deactivateStudent = (name) => {
-        const response = axios.post("https://e-scholars.com/teacher/students/deactivate_student.php", { name: name, grade: grade, section: section })
+        const response = axios.post("https://e-scholars.com/teacher/students/deactivate_student.php", { name: name, grade: grade, section: section }, {withCredentials: true})
             .then((res) => res.data)
             .then((data) => {
                 if (data.status == 'OK') {
@@ -56,7 +56,7 @@ const Students = ({ grade, section }) => {
     }
 
     const deleteStudent = (name) => {
-        const response = axios.post("https://e-scholars.com/teacher/students/remove_student.php", { name: name, grade: grade, section: section })
+        const response = axios.post("https://e-scholars.com/teacher/students/remove_student.php", { name: name, grade: grade, section: section }, {withCredentials: true})
             .then((res) => res.data)
             .then((data) => {
                 if (data.status == 'OK') {
@@ -74,7 +74,7 @@ const Students = ({ grade, section }) => {
             grade: grade,
             section: section,
             attendance: attendance
-        })
+        }, {withCredentials: true})
             .then((res) => res.data)
             .then((data) => {
                 if (data.status === 'OK') {

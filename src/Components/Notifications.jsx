@@ -13,7 +13,7 @@ const Notifications = () => {
     const [classes, setClasses] = useState([])
     const [found, setFound] = useState(false)
     const requestGrades = () => {
-        const response = axios.post("https://e-scholars.com/teacher/classes/current_classes.php")
+        const response = axios.post("https://e-scholars.com/teacher/classes/current_classes.php", {}, {withCredentials: true})
             .then((res) => (res.data))
             .then((data) => {
                 if (data.status == 'OK') {
@@ -58,7 +58,7 @@ const Notifications = () => {
 
     const pushNotification = () => {
         if (selectingAll) {
-            const response = axios.post("https://e-scholars.com/teacher/notifications/push_notification.php", { request_data: [{ message: message, grade: 'all', section: 'all', expire_date: expirationDate }] })
+            const response = axios.post("https://e-scholars.com/teacher/notifications/push_notification.php", { request_data: [{ message: message, grade: 'all', section: 'all', expire_date: expirationDate }] }, {withCredentials: true})
                 .then((res) => (res.data))
                 .then((data) => {
                     if (data.status == 'OK') {
@@ -82,7 +82,7 @@ const Notifications = () => {
                 requestData = [{ message: message, grade: chatParams[0], section: chatParams[1], expire_date: expirationDate }]
             }
 
-            const response = axios.post("https://e-scholars.com/teacher/notifications/push_notification.php", { request_data: requestData })
+            const response = axios.post("https://e-scholars.com/teacher/notifications/push_notification.php", { request_data: requestData }, {withCredentials: true})
                 .then((res) => {
                     setExpirationDate('')
                     setSelectDate(false)

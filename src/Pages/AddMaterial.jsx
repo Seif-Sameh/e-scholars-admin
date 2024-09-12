@@ -35,7 +35,7 @@ const AddClass = () => {
         headers: {
           "Content-Type": 'multipart/form-data'
         }
-      })
+      }, {withCredentials: true})
         .then((res) => (res.data))
         .then((data) => {
           if (data.status == 'OK') {
@@ -56,7 +56,7 @@ const AddClass = () => {
         headers: {
           "Content-Type": 'multipart/form-data'
         }
-      })
+      }, {withCredentials: true})
         .then((res) => (res.data))
         .then((data) => {
           if (data.status == 'OK') {

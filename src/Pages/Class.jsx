@@ -16,7 +16,7 @@ const Class = () => {
     const getCredentials = () => {
         axios.post("https://e-scholars.com/teacher/credentials/get_class_credentials.php", 
         { grade: grade, section: section }, 
-        { responseType: 'blob' } // Important for handling binary data
+        { responseType: 'blob', withCredentials: true } // Important for handling binary data
         ).then(response => {
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
