@@ -50,7 +50,7 @@ const AddClass = () => {
         {
           addedSuccess ?
             (
-              <div className='flex justify-center items-center py-6'>
+              <div className='flex justify-center items-center py-6 shadow-lg'>
                 <div className='flex flex-col items-center text-center gap-6 text-2xl text-[#054bb4] font-bold'>
                   <GoCheckCircleFill size={70} />
                   <p>Class Added Successfully</p>
@@ -98,7 +98,7 @@ const AddClass = () => {
                     {!validSection && <p className='text-red-600 text-sm'>Must be a letter</p>}
                     {classExists && <p className='text-red-600 text-sm text-center'>This class already exists</p>}
                     {failed && <p className='text-red-600 text-sm text-center'>Failed to add class</p>}
-                    <input type="submit" className='bg-[#054bb4] font-bold text-white py-2 rounded-full mt-4' value={'Add'} />
+                    <input type="submit" className='bg-[#054bb4] font-bold text-white py-2 rounded-full mt-4 cursor-pointer' value={'Add'} />
                   </form>
                 </div>
               </>
