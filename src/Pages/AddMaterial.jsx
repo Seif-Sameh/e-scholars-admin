@@ -32,8 +32,9 @@ const AddClass = () => {
       const response = axios.post("https://e-scholars.com/teacher/materials/push_materials.php", file, {
         headers: {
           "Content-Type": 'multipart/form-data'
-        }
-      }, {withCredentials: true})
+        },
+        withCredentials: true
+      })
         .then((res) => (res.data))
         .then((data) => {
           if (data.status == 'OK') {
@@ -53,8 +54,9 @@ const AddClass = () => {
       const response = axios.post("https://e-scholars.com/teacher/materials/push_materials.php", file, {
         headers: {
           "Content-Type": 'multipart/form-data'
-        }
-      }, {withCredentials: true})
+        },
+        withCredentials: true
+      })
         .then((res) => (res.data))
         .then((data) => {
           if (data.status == 'OK') {
