@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { LuLogOut } from "react-icons/lu";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
 
+    const navigate = useNavigate()
+    
     const handleLogOut = () => {
         const response = axios.post("https://e-scholars.com/teacher/logging/logout.php", {}, {withCredentials: true})
         .then((res) => (res.data))
@@ -25,7 +27,7 @@ const Navbar = () => {
             <div className='h-[60px] flex items-center p-4 justify-between container'>
                 <div className='flex gap-10 items-center'>
                     <Link to={'/'}>
-                    <div className='flex items-center gap-5'>
+                    <div className='flex items-center gap-5 cursor-pointer'>
                         <h1 className='text-[#054bb4] font-extrabold text-[30px]'>ِE-Scholars</h1>
                     </div>
                     </Link>

@@ -66,7 +66,7 @@ const Quizzes = () => {
             })
     }
     const deactivateQuiz = (quiz_id) => {
-        const response = axios.post("https://e-scholars.com/teacher/quizzes/deactivate_quiz.php", { grade, section, quiz_id }, {}, {withCredentials: true})
+        const response = axios.post("https://e-scholars.com/teacher/quizzes/deactivate_quiz.php", { grade, section, quiz_id }, {withCredentials: true})
             .then((res) => (res.data))
             .then((data) => {
                 if (data.status == 'OK') {
