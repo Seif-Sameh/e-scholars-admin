@@ -3,8 +3,22 @@ import axios from 'axios';
 import { LuLogOut } from "react-icons/lu";
 import { Link } from 'react-router-dom';
 
-const Navbar = ({ handleLogOut }) => {
+const Navbar = () => {
 
+    const handleLogOut = () => {
+        const response = axios.post("https://e-scholars.com/teacher/logging/logout.php", {withCredentials: true})
+        .then((res) => (res.data))
+        .then((data) => {
+            if (data.status === 'OK') {
+                navigate('/login')
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch((error) => {
+            console.error('There was an error logging in!', error);
+        })
+    }
 
     return (
         <div className='w-full flex justify-center'>
@@ -12,7 +26,7 @@ const Navbar = ({ handleLogOut }) => {
                 <div className='flex gap-10 items-center'>
                     <Link to={'/'}>
                     <div className='flex items-center gap-5'>
-                        <h1 className='text-[#054bb4] font-extrabold text-[30px]'>Academia</h1>
+                        <h1 className='text-[#054bb4] font-extrabold text-[30px]'>ِE-Scholars</h1>
                     </div>
                     </Link>
                 </div>

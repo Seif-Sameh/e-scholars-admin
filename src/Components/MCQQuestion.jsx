@@ -54,8 +54,8 @@ const MCQQuestion = ({ index, id, questions, setQuestions, questionTypes, setQue
         <>
             <div className='flex flex-col gap-3'>
                 <div className='w-full flex gap-6 justify-between'>
-                    <div className='flex gap-1'>
-                    <span>{index +1}&#41; </span>
+                    <div className='flex gap-1 items-center'>
+                    <span className='text-lg'>{index +1}&#41; </span>
                     <input type="text" placeholder='Question' value={question} className='w-full h-[50px] text-lg px-3 rounded-md bg-slate-100 outline-none border-b-2 border-white hover:border-b-slate-400 focus:border-b-[#054bb4]'
                         onChange={(e) => {
                             setQuestion(e.target.value)

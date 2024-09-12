@@ -122,7 +122,7 @@ const Quizzes = () => {
                                                 </div>
                                             </div>
                                             <p className='text-center text-lg font-bold'>{item.title}</p>
-                                            <p className='text-start text-slate-600 text-sm font-medium'>{item.description} asgas sgdsag sgsdg sgasdg sgasg sgsag</p>
+                                            <p className='text-start text-slate-600 text-sm font-medium'>{item.description}</p>
 
                                         </Link>
                                         <BsThreeDotsVertical size={35} className='absolute z-[80] text-slate-700 top-2 right-2 cursor-pointer hover:bg-slate-200 p-2 rounded-full'
