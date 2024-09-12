@@ -75,7 +75,7 @@ const AddClass = () => {
 
   return (
     <div className='w-full h-screen flex flex-col gap-10 items-center bg-cover relative bg-[#658cc2] max-sm:bg-white'>
-      <div className='container w-full h-screen flex justify-center pt-[90px] pb-[50px] max-sm:px-[30px] px-6 gap-8 items-center z-10'>
+      <div className='container w-full h-screen flex justify-center pt-[90px] pb-[50px] max-sm:px-[40px] px-6 gap-8 items-center z-10'>
         <div className='md:w-1/2 sm:w-3/4 max-sm:w-full  bg-white rounded-md p-5 max-sm:px-0 flex flex-col gap-4'>
           {
             addedSuccess ?
