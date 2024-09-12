@@ -56,7 +56,7 @@ const Materials = ({ grade, section }) => {
             <div className='w-full flex flex-col gap-6'>
                 <div className='flex w-full justify-between items-center'>
                     <p className='text-[#054bb4] text-3xl font-bold'>Materials</p>
-                    <Link to={`/admin/class/${grade}/${section}/add_material`}>
+                    <Link to={`/class/${grade}/${section}/add_material`}>
                         <button title='add class' className='text-[#054bb4] ml-5 max-md:ml-1 w-[40px] h-[40px] rounded-full hover:bg-slate-200 flex gap-2 items-center justify-center'>
                             <FaPlus size={20} />
                         </button>
@@ -68,7 +68,7 @@ const Materials = ({ grade, section }) => {
                             <div className='grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1  gap-5'>
                                 {materials && materials.map((item, index) => (
                                     <div key={index} className='relative group transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer'>
-                                        <Link to={`/admin/material_page/${grade}/${section}/${item.item_id}`} state={{type: item.type}} key={item.id}>
+                                        <Link to={`/material_page/${grade}/${section}/${item.item_id}`} state={{type: item.type}} key={item.id}>
                                             <div className='w-full h-[200px] bg-slate-200 rounded-md px-4 py-6 cursor-pointer flex flex-col items-center gap-4'>
                                                 <div className='h-1/2 flex items-center'>
                                                     {item.type == 'Image' && <IoImage size={90} className='text-[#054bb4]' />}

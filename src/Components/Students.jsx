@@ -119,7 +119,7 @@ const Students = ({ grade, section }) => {
             <div className='w-full flex flex-col gap-6'>
                 <div className='flex w-full justify-between items-center'>
                     <p className='text-[#054bb4] text-3xl font-bold'>Students</p>
-                    <Link to={`/admin/class/${grade}/${section}/add_student`}>
+                    <Link to={`/class/${grade}/${section}/add_student`}>
                         <button title='add class' className='text-[#054bb4] ml-5 max-md:ml-1 w-[40px] h-[40px] rounded-full hover:bg-slate-200 flex gap-2 items-center justify-center'>
                             <FaPlus size={20} />
                         </button>

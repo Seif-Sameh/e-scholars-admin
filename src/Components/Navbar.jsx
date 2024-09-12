@@ -10,7 +10,7 @@ const Navbar = ({ handleLogOut }) => {
         <div className='w-full flex justify-center'>
             <div className='h-[60px] flex items-center p-4 justify-between container'>
                 <div className='flex gap-10 items-center'>
-                    <Link to={'/admin'}>
+                    <Link to={'/'}>
                     <div className='flex items-center gap-5'>
                         <h1 className='text-[#054bb4] font-extrabold text-[30px]'>Academia</h1>
                     </div>

@@ -51,12 +51,12 @@ const QuizzesMain = () => {
             <img src={image2} alt="" className=' z-0 absolute w-full h-screen object-cover' />
             {confirm && <Confirmation type={'quiz'} data={deletingData} handler={deleteQuiz} cancelHandler={setConfirm} />}
             <div className='grid grid-cols-2 justify-center gap-5 mt-[80px] z-20 container px-6'>
-                <Link to={'/admin'}>
+                <Link to={'/'}>
                     <button className='bg-white hover:bg-slate-100 text-[#054bb4] w-full py-3 rounded-full  text-2xl font-bold cursor-pointer'>
                         Classes
                     </button>
                 </Link>
-                <Link to={'/admin/quizzes'}>
+                <Link to={'/quizzes'}>
                     <button className='bg-[#054bb4] hover:bg-[#065ad9] text-white w-full py-3 rounded-full text-2xl font-bold cursor-pointer'>
                         Quizzes
                     </button>
@@ -65,7 +65,7 @@ const QuizzesMain = () => {
             <div className='z-10 container w-full h-screen flex flex-col  pb-[20px] px-6 gap-8 items-center overflow-y-scroll no-scrollbar'>
                 <div className='flex w-full justify-between items-center'>
                     <h1 className='text-5xl font-bold text-[#054bb4]'>Quizzes</h1>
-                    <Link to={'/admin/add_quiz'}>
+                    <Link to={'/add_quiz'}>
                         <button className='text-[#054bb4] ml-5 max-md:ml-1 w-[50px] h-[50px] rounded-full bg-white flex gap-2 items-center justify-center'>
                             <FaPlus size={20} />
                         </button>
@@ -76,7 +76,7 @@ const QuizzesMain = () => {
                     {
                         found && quizzes.map((item, index) => (
                             <div key={index} className='relative group transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'>
-                                <Link to={`/admin/quizzes/quiz/${item.quiz_id}`}>
+                                <Link to={`/quizzes/quiz/${item.quiz_id}`}>
                                     <div className='w-full h-[200px] flex flex-col gap-3 justify-center items-center bg-white  rounded-md cursor-pointer '>
                                         <IoMdStopwatch size={80} className='text-[#054bb4]' />
                                         <p className='text-xl font-black text-[#054bb4]'>{item.title}</p>

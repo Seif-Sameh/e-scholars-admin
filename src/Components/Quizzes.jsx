@@ -112,7 +112,7 @@ const Quizzes = () => {
                             {
                                 (!includeMode && found) && classQuizzes.map((item, index) => (
                                     <div key={item.quiz_id} className='flex flex-col bg-slate-200 rounded-md p-4 gap-3 cursor-pointer relative transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'>
-                                        <Link to={`/admin/quizzes/quiz/${item.quiz_id}`} state={{grade: grade, section: section}} className=' w-full flex flex-col gap-2 cursor-pointer'>
+                                        <Link to={`/quizzes/quiz/${item.quiz_id}`} state={{grade: grade, section: section}} className=' w-full flex flex-col gap-2 cursor-pointer'>
                                             <div className='relative w-full flex justify-center'>
                                                 <div className='relative'>
                                                 <IoMdStopwatch size={60} className='text-[#054bb4]' />
@@ -159,7 +159,7 @@ const Quizzes = () => {
                             {
                                 includeMode && allQuizzes.map((item) => (
                                     <div key={item.quiz_id} className='flex flex-col items-center bg-slate-200 rounded-md p-4 gap-3 cursor-pointer relative '>
-                                        <Link to={`/admin/quizzes/quiz/${item.quiz_id}`} className=' w-full flex flex-col gap-2 cursor-pointer'>
+                                        <Link to={`/quizzes/quiz/${item.quiz_id}`} className=' w-full flex flex-col gap-2 cursor-pointer'>
                                             <div className='relative w-full flex justify-center'>
                                                 <div className='relative'>
                                                 <IoMdStopwatch size={60} className='text-[#054bb4]' />

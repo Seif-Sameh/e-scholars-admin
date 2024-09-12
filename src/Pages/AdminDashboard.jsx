@@ -8,13 +8,13 @@ const AdminDashboard = () => {
     const location = useLocation()
     return (
         <div className='w-full flex flex-col items-center relative '>
-            {!location.pathname.includes('/admin/material_page') && 
+            {!location.pathname.includes('/material_page') && 
             <div className='w-full fixed bg-white z-[100]'>
                 <Navbar />
             </div>}
             <Outlet/>
             
-            {!location.pathname.includes('/admin/material_page') && <Notifications/>}
+            {!location.pathname.includes('/material_page') && <Notifications/>}
         </div>
     )
 }
