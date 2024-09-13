@@ -25,6 +25,7 @@ const Chat = ({chatParams, New, setNew, setEditing, edited, setEdited, inputMess
         .then((data) => {
             setFound( data.found)
             setNotifications(data.notification)
+            setNew(false)
         })
     }
     const deleteNotification = (grade, section, id) =>{
@@ -54,8 +55,7 @@ const Chat = ({chatParams, New, setNew, setEditing, edited, setEdited, inputMess
     }
         
     useEffect(() => {
-        fetchNotifications() 
-        setNew(false)
+        New && fetchNotifications() 
         return(() => setNotifications([]))
     }, [New])
 
