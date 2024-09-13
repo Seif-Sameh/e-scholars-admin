@@ -80,10 +80,10 @@ const ViewQuiz = () => {
   return (
     <div className='w-full min-h-screen flex flex-col items-center bg-cover relative bg-[#658cc2] max-sm:bg-white'>
       <div className='w-full flex justify-center pb-[50px] px-4 gap-8 items-center z-10'>
-        <div className='max-md:w-[100%] md:w-3/5 bg-white rounded-md flex flex-col gap-4 py-5'>
+        <div className='max-md:w-[100%] md:w-3/5'>
           {
             addedSuccessfully ? (
-              <div className='flex justify-center items-center py-6 shadow-md'>
+              <div className='flex justify-center items-center py-6 shadow-md bg-white'>
                 <div className='flex flex-col items-center gap-6 text-2xl text-center text-[#054bb4] font-bold'>
                   <GoCheckCircleFill size={70} />
                   <p>Quiz Added Successfully</p>
