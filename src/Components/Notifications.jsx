@@ -118,16 +118,16 @@ const Notifications = () => {
                     </div>
 
                 ) : (
-                    <div className='w-[300px] sm:h-[500px] max-sm:h-[55%] fixed z-[200] bottom-0 right-5 bg-white border-2 border-[#054bb4] rounded-t-md flex flex-col justify-between shadow-lg'>
-                        <div className='h-[45px] py-2 px-4 flex justify-between items-center' onClick={() => setToggleNotifications(!toggleNotifications)}>
-                            <p className='text-[#054bb4] font-semibold text-lg'>
+                    <div className='w-[300px] sm:h-[500px] max-sm:h-[55%] fixed z-[200] bottom-0 right-5 bg-white rounded-t-md flex flex-col justify-between shadow-lg'>
+                        <div className='h-[45px] py-2 px-4 bg-[#054bb4] flex justify-between items-center' onClick={() => setToggleNotifications(!toggleNotifications)}>
+                            <p className='text-white font-semibold text-lg'>
                                 Notifications
                             </p>
                             <div className='text-slate-700 w-[28px] h-[28px] rounded-full flex justify-center items-center cursor-pointer'>
                                 <IoIosArrowDown size={25} />
                             </div>
                         </div>
-                        <div className='w-full px-3 py-2 flex justify-between bg-[#658cc2] text-white'>
+                        <div className='w-full px-3 py-2 flex justify-between text-[#658cc2]'>
                             {
                                 !displayChat ?
                                     (!selectingGrades ? (
@@ -206,7 +206,7 @@ const Notifications = () => {
                                 {invalidrecipient && <span className='text-sm text-red-500'>Select Recipient</span>}
                                 {emptyMessage && <span className='text-sm text-red-500'>Enter a message</span>}
                                 <div className='w-full flex items-center gap-2'>
-                                    <textarea ref={messageRef} className='bg-slate-300 rounded-full px-3 py-2 flex-1 h-[40px] resize-none' required onChange={(e) => setMessage(e.target.value)} />
+                                    <textarea ref={messageRef} className='bg-slate-200 rounded-md px-3 py-2 flex-1 h-[40px] resize-none' required onChange={(e) => setMessage(e.target.value)} />
                                     <div className='w-[25px] rounded-full flex justify-center items-center cursor-pointer' onClick={() => setSelectDate(!selectDate)}>
                                         <label htmlFor="expiration">
                                             <PiClockCountdownFill size={22} className='text-[#054bb4] cursor-pointer' />
