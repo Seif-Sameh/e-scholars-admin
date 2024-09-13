@@ -231,7 +231,6 @@ const Notifications = () => {
                                                 setInvalidRecipient(false)
                                                 setEmptyMessage(false)
                                                 pushNotification()
-                                                setNew(true)
                                             }
                                         }
                                     }}>
