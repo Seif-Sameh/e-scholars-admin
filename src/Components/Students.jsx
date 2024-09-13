@@ -177,7 +177,7 @@ const Students = ({ grade, section }) => {
                                                             </div>
                                                             {
                                                                 (toggleOptions && selected == index) && (
-                                                                    <div className={`absolute w-[180px] z-[90]  bg-white right-1 top-full p-3 flex-col gap-2 divide-y-2 text-lg rounded-md shadow-md`}>
+                                                                    <div className={`absolute w-[180px] z-[90]  bg-white right-5 top-1 p-3 flex-col gap-2 divide-y-2 text-lg rounded-md shadow-md`}>
                                                                         {
                                                                             item[1] == 'active' ?
                                                                                 (

@@ -75,7 +75,7 @@ const Schedule = ({ grade, section }) => {
                                                     setSelected(index)
                                                 }} />
                                         </div>
-                                        <button className={`absolute w-[180px] right-[-5px] top-[50px] z-[90] drop-shadow-md  items-center gap-2 p-3 bg-white text-red-600 text-lg rounded-md ${(toggleOptions && selected == index) ? 'flex' : 'hidden'}`}
+                                        <button className={`absolute w-[180px] right-[-5px] top-[50px] z-[90] shadow-lg items-center gap-2 p-3 bg-white text-red-600 text-lg rounded-md ${(toggleOptions && selected == index) ? 'flex' : 'hidden'}`}
                                             onClick={() => {
                                                 setDeletingData([item.id])
                                                 setConfirm(true)
