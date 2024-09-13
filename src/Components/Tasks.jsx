@@ -87,10 +87,10 @@ const Tasks = ({ grade, section }) => {
                                             item.category == type && (
                                                 <div key={item.id} className='flex justify-between relative '>
                                                     <div className='flex flex-col gap-1'>
-                                                        <div className='flex items-center  gap-2'>
+                                                        <div className='flex items-center gap-2 w-[80%]'>
                                                             <VscDebugBreakpointLog size={20} className='text-[#054bb4]' />
                                                             {selected == item.id && editing ? (
-                                                                <input type='text' defaultValue={item.task} className='border-2 text-xl w-[70%] border-b-[#054bb4] outline-none border-white rounded-md '
+                                                                <input type='text' defaultValue={item.task} className='border-2 text-xl w-full border-b-[#054bb4] outline-none border-white rounded-md '
                                                                     onChange={(e) => setTask(e.target.value)}
                                                                 />
                                                             ) : (
