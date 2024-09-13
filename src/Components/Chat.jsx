@@ -54,10 +54,14 @@ const Chat = ({chatParams, New, setNew, setEditing, edited, setEdited, inputMess
     }
         
     useEffect(() => {
-        fetchNotifications()
+        fetchNotifications() 
         setNew(false)
         return(() => setNotifications([]))
-    }, [, New])
+    }, [New])
+
+    useEffect(() => {
+        fetchNotifications()
+    }, [])
 
     useEffect(() => {
         chat.current?.lastElementChild?.scrollIntoView()
