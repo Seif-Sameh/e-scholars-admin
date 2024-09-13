@@ -122,13 +122,13 @@ const Quizzes = () => {
                                             <p className='text-start text-slate-600 text-sm font-medium'>{item.description}</p>
 
                                         </Link>
-                                        <BsThreeDotsVertical size={35} className='absolute z-[80] text-slate-700 top-2 right-2 cursor-pointer hover:bg-slate-200 p-2 rounded-full'
+                                        <BsThreeDotsVertical size={35} className='absolute z-[80] text-slate-700 top-2 right-2 cursor-pointer p-2 rounded-full'
                                             onClick={() => {
                                                 setToggleOptions(!toggleOptions)
                                                 setSelected(index)
                                             }} />
                                         <div className={`absolute right-[-5px] top-[50px] z-[90] drop-shadow-md flex-col  items-center  w-[180px] p-2 bg-white select-none  font-medium rounded-md ${(toggleOptions && selected == index) ? 'flex' : 'hidden'}`}>
-                                            {item.status == 'active' ? (<button className='flex w-full gap-1 items-center p-2 text-red-500 text-lg hover:bg-slate-200'
+                                            {item.status == 'active' ? (<button className='flex w-full gap-1 items-center p-2 text-red-500 text-lg'
                                                 onClick={() => {
                                                     setToggleOptions(false)
                                                     deactivateQuiz(item.quiz_id)
@@ -138,7 +138,7 @@ const Quizzes = () => {
                                                 <span >Deactivate</span>
                                             </button>)
                                                 : (
-                                                    <button className='flex w-full gap-2 items-center px-3 py-2 text-lg text-green-600 hover:bg-slate-200'
+                                                    <button className='flex w-full gap-2 items-center px-3 py-2 text-lg text-green-600'
                                                         onClick={() => {
                                                             setToggleOptions(false)
                                                             activateQuiz(item.quiz_id)

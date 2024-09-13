@@ -181,7 +181,7 @@ const Students = ({ grade, section }) => {
                                                                         {
                                                                             item[1] == 'active' ?
                                                                                 (
-                                                                                    <div className='flex gap-1 items-center p-2 pl-1 text-red-500 cursor-pointer hover:bg-slate-200'
+                                                                                    <div className='flex gap-1 items-center p-2 pl-1 text-red-500 cursor-pointer'
                                                                                         onClick={() => {
                                                                                             deactivateStudent(item[0])
                                                                                             setToggleOptions(false)
@@ -191,7 +191,7 @@ const Students = ({ grade, section }) => {
                                                                                         <span>Deactivate</span>
                                                                                     </div>
                                                                                 ) : (
-                                                                                    <div className='flex gap-2 items-center p-2 text-green-600 cursor-pointer hover:bg-slate-200'
+                                                                                    <div className='flex gap-2 items-center p-2 text-green-600 cursor-pointer'
                                                                                         onClick={() => {
                                                                                             activateStudent(item[0])
                                                                                             setToggleOptions(false)
@@ -202,7 +202,7 @@ const Students = ({ grade, section }) => {
                                                                                     </div>
                                                                                 )
                                                                         }
-                                                                        <div className='flex gap-2 items-center text-red-500 p-2 cursor-pointer hover:bg-slate-200'
+                                                                        <div className='flex gap-2 items-center text-red-500 p-2 cursor-pointer'
                                                                             onClick={() => {
                                                                                 setConfirm(true)
                                                                                 setDeletingData([item[0], grade, section])
