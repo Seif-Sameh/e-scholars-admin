@@ -86,7 +86,7 @@ const ViewQuiz = () => {
               <div className='flex justify-center items-center py-6 shadow-md bg-white mt-[140px]'>
                 <div className='flex flex-col items-center gap-6 text-2xl text-center text-[#054bb4] font-bold'>
                   <GoCheckCircleFill size={70} />
-                  <p>Quiz Added Successfully</p>
+                  <p>Quiz Updated Successfully</p>
                 </div>
               </div>
             ) : (
