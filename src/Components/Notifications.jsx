@@ -119,11 +119,11 @@ const Notifications = () => {
 
                 ) : (
                     <div className='w-[300px] sm:h-[500px] max-sm:h-[55%] fixed z-[200] bottom-0 right-5 bg-white rounded-t-md flex flex-col justify-between shadow-lg'>
-                        <div className='h-[45px] py-2 px-4 bg-[#054bb4] flex justify-between items-center' onClick={() => setToggleNotifications(!toggleNotifications)}>
+                        <div className='h-[45px] py-2 px-4 bg-[#054bb4] flex justify-between rounded-t-md items-center' onClick={() => setToggleNotifications(!toggleNotifications)}>
                             <p className='text-white font-semibold text-lg'>
                                 Notifications
                             </p>
-                            <div className='text-slate-700 w-[28px] h-[28px] rounded-full flex justify-center items-center cursor-pointer'>
+                            <div className='text-white w-[28px] h-[28px] rounded-full flex justify-center items-center cursor-pointer'>
                                 <IoIosArrowDown size={25} />
                             </div>
                         </div>
@@ -131,9 +131,9 @@ const Notifications = () => {
                             {
                                 !displayChat ?
                                     (!selectingGrades ? (
-                                        <button onClick={() => { setSelectingGrades(true) }}>Select</button>
+                                        <button onClick={() => { setSelectingGrades(true) }} className='font-semibold'>Select</button>
                                     ) : (
-                                        <div className='w-full flex justify-end items-center cursor-pointer gap-2'
+                                        <div className='w-full flex justify-end items-center cursor-pointer gap-2 font-semibold'
                                             onClick={() => {
                                                 setSelectingGrades(false)
                                                 setSendTo([])
