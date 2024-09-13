@@ -37,14 +37,14 @@ const AddSession = () => {
   }
 
   return (
-    <div className='w-full min-h-screen h-full flex flex-col gap-10 items-center bg-cover relative bg-[#658cc2]'>
+    <div className='w-full min-h-screen h-full flex flex-col gap-10 items-center bg-cover relative bg-[#658cc2] max-sm:bg-white'>
       <div className='container w-full h-full flex justify-center mt-[90px] pb-[50px] px-6 gap-8 items-center z-10'>
         <div className='md:w-1/2 sm:w-3/4 max-sm:w-full bg-white rounded-md p-5 max-sm:p-0 flex flex-col gap-4'>
           {
             addedSuccess ?
               (
                 <div className='flex justify-center items-center py-6 max-sm:shadow-lg'>
-                  <div className='flex flex-col items-cente text-center justify-center gap-6 text-2xl text-[#054bb4] font-bold'>
+                  <div className='flex flex-col items-center text-center justify-center gap-6 text-2xl text-[#054bb4] font-bold'>
                     <GoCheckCircleFill size={70} />
                     <p>Session Added Successfully</p>
                   </div>
