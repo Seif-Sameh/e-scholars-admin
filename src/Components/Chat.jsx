@@ -116,8 +116,8 @@ const Chat = ({chatParams, New, setNew, setEditing, edited, setEdited, inputMess
                             <BsThreeDotsVertical/>
                             </div>
                             {(showOptions && selected == item.id) && (
-                                <div className='absolute top-[5%] right-[110%] bg-slate-200 py-2 text-base font-light flex flex-col gap-2 rounded-md select-none z-50'>
-                                    <button className='flex items-center gap-2  px-3 cursor-pointer'
+                                <div className='absolute top-[5%] right-[110%] bg-slate-100 py-2 text-base font-light flex flex-col gap-2 rounded-md select-none z-[110]'>
+                                    <button className='flex items-center gap-2  px-4 cursor-pointer'
                                         onClick={() => {
                                             const date = new Date(item.Expire_date * 1000)
                                             setShowOptions(false)
@@ -132,7 +132,7 @@ const Chat = ({chatParams, New, setNew, setEditing, edited, setEdited, inputMess
                                         <MdEdit />
                                         <span >Edit</span>
                                     </button>
-                                    <button className='flex items-center gap-2 text-red-500 px-3 cursor-pointer'
+                                    <button className='flex items-center gap-2 text-red-500 px-4 cursor-pointer'
                                         onClick={() => {
                                             setShowOptions(false)
                                             setMessageData([item.id])
