@@ -107,13 +107,11 @@ const Notifications = () => {
             {
                 !toggleNotifications ? (
                     <div className='w-[300px] max-sm:w-[250px]  h-[45px] fixed z-[200] bottom-0 right-5 bg-[#054bb4]  rounded-t-md'>
-                        <div className='py-2 px-4 flex justify-between items-center'>
+                        <div className='py-2 px-4 flex justify-between items-center' onClick={() => setToggleNotifications(!toggleNotifications)}>
                             <p className='text-white font-semibold text-lg'>
                                 Notifications
                             </p>
-                            <div className='text-white w-[28px] h-[28px] rounded-full flex justify-center items-center cursor-pointer'
-                                onClick={() => setToggleNotifications(!toggleNotifications)}
-                            >
+                            <div className='text-white w-[28px] h-[28px] rounded-full flex justify-center items-center cursor-pointer'>
                                 <IoIosArrowUp size={25} />
                             </div>
                         </div>
@@ -121,11 +119,11 @@ const Notifications = () => {
 
                 ) : (
                     <div className='w-[300px] max-sm:w-[250px] sm:h-[500px] max-sm:h-[300px] fixed z-[200] bottom-0 right-5 bg-white rounded-t-md flex flex-col justify-between shadow-lg'>
-                        <div className='h-[45px] py-2 px-4 flex justify-between items-center'>
+                        <div className='h-[45px] py-2 px-4 flex justify-between items-center' onClick={() => setToggleNotifications(!toggleNotifications)}>
                             <p className='text-[#054bb4] font-semibold text-lg'>
                                 Notifications
                             </p>
-                            <div className='text-slate-700 w-[28px] h-[28px] rounded-full flex justify-center items-center cursor-pointer' onClick={() => setToggleNotifications(!toggleNotifications)}>
+                            <div className='text-slate-700 w-[28px] h-[28px] rounded-full flex justify-center items-center cursor-pointer'>
                                 <IoIosArrowDown size={25} />
                             </div>
                         </div>
