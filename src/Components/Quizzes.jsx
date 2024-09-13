@@ -108,7 +108,7 @@ const Quizzes = () => {
                         <div className='grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 '>
                             {
                                 (!includeMode && found) && classQuizzes.map((item, index) => (
-                                    <div key={item.quiz_id} className='flex flex-col bg-slate-200 rounded-md p-4 gap-3 cursor-pointer relative transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'>
+                                    <div key={item.quiz_id} className='flex flex-col bg-slate-200 rounded-md p-4 gap-3 cursor-pointer relative lg:transition lg:ease-in-out lg:delay-150 lg:hover:-translate-y-1 lg:hover:scale-110 lg:duration-300'>
                                         <Link to={`/quizzes/quiz/${item.quiz_id}`} state={{grade: grade, section: section}} className=' w-full flex flex-col gap-2 cursor-pointer'>
                                             <div className='relative w-full flex justify-center'>
                                                 <div className='relative'>

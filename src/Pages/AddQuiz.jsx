@@ -61,7 +61,7 @@ const AddQuiz = () => {
         <div className='max-md:w-[100%] md:w-3/5 bg-white rounded-md flex flex-col gap-4 py-5'>
           {
             addedSuccessfully ? (
-              <div className='flex justify-center items-center py-6 shadow-lg'>
+              <div className='flex justify-center items-center py-6 max-sm:shadow-lg'>
                 <div className='flex flex-col items-center text-center gap-6 text-2xl text-[#054bb4] font-bold'>
                   <GoCheckCircleFill size={70} />
                   <p>Quiz Added Successfully</p>

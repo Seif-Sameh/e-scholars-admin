@@ -32,7 +32,7 @@ const AddClass = () => {
           {
             addedSuccess ?
               (
-                <div className='flex justify-center items-center py-6 shadow-lg'>
+                <div className='flex justify-center items-center py-6 max-sm:shadow-lg'>
                   <div className='flex flex-col items-center text-center gap-6 text-2xl text-[#054bb4] font-bold'>
                     <GoCheckCircleFill size={70} />
                     <p>Task Added Successfully</p>
@@ -78,8 +78,6 @@ const AddClass = () => {
                         }}
                       />
 
-                      {/* {invalidType && <p className='text-red-600 text-sm text-center'>Invalid type. Please choose the right document format.</p>} */}
-                      {/* {errorMessage != '' && <p className='text-red-600 text-sm text-center'>{errorMessage}</p>} */}
                       <input type="submit" className='bg-[#054bb4] font-bold text-white py-2 rounded-full mt-4 cursor-pointer' value={'Submit'} />
                     </form>
                   </div>

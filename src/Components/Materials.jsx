@@ -67,7 +67,7 @@ const Materials = ({ grade, section }) => {
                         (
                             <div className='grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1  gap-5'>
                                 {materials && materials.map((item, index) => (
-                                    <div key={index} className='relative group transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer'>
+                                    <div key={index} className='relative group lg:transition lg:ease-in-out lg:delay-150 lg:hover:-translate-y-1 lg:hover:scale-110 lg:duration-300 cursor-pointer'>
                                         <Link to={`/material_page/${grade}/${section}/${item.item_id}`} state={{type: item.type}} key={item.id}>
                                             <div className='w-full h-[200px] bg-slate-200 rounded-md px-4 py-6 cursor-pointer flex flex-col items-center gap-4'>
                                                 <div className='h-1/2 flex items-center'>

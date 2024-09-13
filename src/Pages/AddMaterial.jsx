@@ -80,7 +80,7 @@ const AddClass = () => {
           {
             addedSuccess ?
               (
-                <div className='flex justify-center items-center py-6 shadow-lg'>
+                <div className='flex justify-center items-center py-6 mad-sm:shadow-lg'>
                   <div className='flex flex-col items-center gap-6 text-2xl text-[#054bb4] text-center font-bold'>
                     <GoCheckCircleFill size={70} />
                     <p>Material Added Successfully</p>

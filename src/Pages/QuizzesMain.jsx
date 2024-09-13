@@ -47,7 +47,7 @@ const QuizzesMain = () => {
 
     return (
         <div className='w-full h-screen flex flex-col gap-5 items-center bg-cover relative bg-gradient-to-t from-black to-transparent'>
-            <img src={image2} alt="" className=' z-0 absolute w-full h-screen object-cover' />
+            <img src={image2} alt="" className=' z-0 fixed w-full h-screen object-cover' />
             {confirm && <Confirmation type={'quiz'} data={deletingData} handler={deleteQuiz} cancelHandler={setConfirm} />}
             <div className='grid grid-cols-2 justify-center gap-5 mt-[80px] z-20 container px-6'>
                 <Link to={'/'}>
@@ -61,7 +61,7 @@ const QuizzesMain = () => {
                     </button>
                 </Link>
             </div>
-            <div className='z-10 container w-full h-screen flex flex-col  pb-[20px] px-6 gap-4 items-center overflow-y-scroll no-scrollbar'>
+            <div className='z-10 container w-full h-screen flex flex-col  pb-[20px] px-6 gap-4 items-center'>
                 <div className='flex w-full justify-end items-center'>
                     <Link to={'/add_quiz'}>
                         <button className='text-[#054bb4] ml-5 max-md:ml-1 w-[50px] h-[50px] rounded-full bg-white flex gap-2 items-center justify-center'>
@@ -73,7 +73,7 @@ const QuizzesMain = () => {
                 <div className='w-full grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 max-sm:grid-cols-1 gap-6 select-none  p-4 '>
                     {
                         found && quizzes.map((item, index) => (
-                            <div key={index} className='relative group transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'>
+                            <div key={index} className='relative group lg:transition lg:ease-in-out lg:delay-150 lg:hover:-translate-y-1 lg:hover:scale-110 lg:duration-300'>
                                 <Link to={`/quizzes/quiz/${item.quiz_id}`}>
                                     <div className='w-full h-[200px] flex flex-col gap-3 justify-center items-center bg-white  rounded-md cursor-pointer '>
                                         <IoMdStopwatch size={80} className='text-[#054bb4]' />
