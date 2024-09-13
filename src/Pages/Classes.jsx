@@ -47,7 +47,7 @@ const Classes = () => {
         <div className='w-full h-screen flex flex-col gap-5 items-center bg-cover relative bg-gradient-to-t from-black to-transparent'>
             <img src={image2} alt="" className='z-0 absolute w-full h-screen object-cover' />
             {confirm && <Confirmation type={'class'} data={deletingData} handler={deleteGrade} cancelHandler={setConfirm} />}
-            <div className='grid grid-cols-2 justify-center gap-5 mt-[80px] z-20 container px-6'>
+            <div className='grid grid-cols-2 justify-center gap-5 mt-[80px] z-20 container px-6 overflow-y-scroll no-scrollbar'>
                 <Link to={'/'}>
                     <button className='bg-[#054bb4] hover:bg-[#065ad9] text-white   w-full py-3 rounded-full  text-2xl font-bold cursor-pointer'>
                         Classes
@@ -71,7 +71,7 @@ const Classes = () => {
                 <div className='w-full grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 max-sm:grid-cols-1 gap-6 select-none p-4 '>
                     {
                         found && classes.map((item, index) => (
-                            <div key={index} className='relative group transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'>
+                            <div key={index} className='relative group transition ease-in-out delay-150 lg:hover:-translate-y-1 lg:hover:scale-110 duration-300'>
                                 <Link to={`/class/${item[0]}/${item[1]}`}>
                                     <div className='w-full h-[200px] flex justify-center items-center bg-white rounded-md cursor-pointer '>
                                         <p className='text-[80px] font-black text-[#054bb4] uppercase'>{item[0]} {item[1]}</p>
