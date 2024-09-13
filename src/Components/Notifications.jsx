@@ -70,6 +70,7 @@ const Notifications = () => {
                         setMessage('')
                         messageRef.current.value = ''
                         dateRef.current.value = ''
+                        setNew(true)
                     }
                 })
         }
