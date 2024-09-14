@@ -133,7 +133,7 @@ const AddClass = () => {
                       }
                     >
                       <label htmlFor="type" className='text-lg font-medium'>Type</label>
-                      <select name="type" id="type" className='h-10 bg-slate-300 px-2 cursor-pointer text-slate-700' required defaultValue={'default'}
+                      <select disabled={uploadStatus == 'uploading' ? true : false} name="type" id="type" className='h-10 bg-slate-300 px-2 cursor-pointer text-slate-700' required defaultValue={'default'}
                         onChange={(e) => {
                           setType(e.target.value)
                         }}
@@ -192,7 +192,7 @@ const AddClass = () => {
                                     </div>
                                   </div>
                                     {uploadStatus == 'uploading' && 
-                                    <div className='w-full h-2 rounded-full bg-slate-300'>
+                                    <div className='w-full h-2 rounded-full bg-slate-300 overflow-hidden'>
                                       <div className={`bg-[#054bb4] h-2 rounded-l-full`} style={{width: `${progress}%`}}></div>
                                     </div>}
                                 </div>
@@ -203,7 +203,7 @@ const AddClass = () => {
                       }
 
                       <label htmlFor="description" className='text-lg font-medium'>Description</label>
-                      <input type="text" name='description' id='description' required className='border-2 border-[#054bb4] h-[50px] rounded-md px-2'
+                      <input  type="text" name='description' id='description' required disabled={uploadStatus == 'uploading' ? true : false} className='border-2 border-[#054bb4] h-[50px] rounded-md px-2'
                         placeholder='Material&#39;s title or description'
                         onChange={(e) => {
                           setDescription(e.target.value)
