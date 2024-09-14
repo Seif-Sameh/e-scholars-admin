@@ -2,7 +2,7 @@ import React from 'react'
 
 const Confirmation = ({ type, data, handler, cancelHandler }) => {
     return (
-        <div className={`fixed top-0 left-0 bg-black bg-opacity-75 w-full h-full flex justify-center items-center z-[90] ${type == 'message' && 'rounded-t-md'}`}>
+        <div className={`top-0 left-0 bg-black bg-opacity-75 w-full h-full flex justify-center items-center z-[90] ${type == 'message' ? 'rounded-t-md absolute' : 'fixed'}`}>
             <div className={`bg-white ${type == 'message' ? 'w-[90%]' : 'md:w-1/3 max-md:w-[90%]'} flex flex-col gap-8 justify-between rounded-md p-4`}>
                 <div className='flex flex-col gap-3'>
                     {type == 'class' && <p className='font-bold text-[#054bb4] text-2xl'>Delete grade {data[0]} section {data[1]}? </p>}
