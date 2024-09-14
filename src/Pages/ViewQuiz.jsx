@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FaPlus } from "react-icons/fa";
 import MCQQuestion from '../Components/MCQQuestion';
-import { v4 as uuidv4 } from 'uuid';  // Add this line
+import { v4 as uuidv4 } from 'uuid';
 import RearrangeQuestion from '../Components/RearrangeQuestion';
 import { GoCheckCircleFill } from "react-icons/go";
 import { useLocation, useParams } from 'react-router';
 import Responses from '../Components/Responses';
+import { useNavigate } from "react-router-dom";
+
 
 const ViewQuiz = () => {
   const [title, setTitle] = useState('');
@@ -25,7 +27,7 @@ const ViewQuiz = () => {
 
   const { state } = useLocation()
   const params = useParams()
-
+  const navigate = useNavigate()
 
   const addQuiz = () => {
 
@@ -45,6 +47,9 @@ const ViewQuiz = () => {
         if (err.response.data.status === 'error' && err.response.data.message === 'the same title already exists') {
           setAlreadyExists(true);
         }
+        if(!err.response.data.authenticated){
+            navigate('/login')
+        }
       })
       : setEmptyQuestions(true)
   };
@@ -57,6 +62,11 @@ const ViewQuiz = () => {
           setAddedSuccessfully(true)
         }
       })
+      .catch((err)=> {
+        if(!err.response.data.authenticated){
+            navigate('/login')
+        }
+    })
   };
 
   useEffect(() => {
@@ -71,6 +81,11 @@ const ViewQuiz = () => {
           setQuestionTypes(data.questions.map((t) => ({ id: t.id, type: t.type })))
         }
       })
+      .catch((err)=> {
+        if(!err.response.data.authenticated){
+            navigate('/login')
+        }
+    })
   }, [])
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import axios from 'axios'
 import { GoCheckCircleFill } from "react-icons/go";
 import { useParams } from 'react-router';
@@ -7,6 +7,8 @@ import { IoImage } from "react-icons/io5";
 import { FaFilePdf } from "react-icons/fa6";
 import { FaFileAudio } from "react-icons/fa6";
 import { IoCloseCircleOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
+
 
 const AddClass = () => {
 
@@ -18,6 +20,7 @@ const AddClass = () => {
   const [errorMessage, setErrorMessage] = useState(false)
 
   const params = useParams()
+  const navigate = useNavigate()
 
   const addMaterial = () => {
     const file = new FormData()
@@ -47,6 +50,11 @@ const AddClass = () => {
             setErrorMessage(data.message)
           }
         })
+        .catch((err)=> {
+          if(!err.response.data.authenticated){
+              navigate('/login')
+          }
+      })
     }
     else {
       file.append('file', material)
@@ -69,6 +77,11 @@ const AddClass = () => {
             setErrorMessage(data.message)
           }
         })
+        .catch((err)=> {
+          if(!err.response.data.authenticated){
+              navigate('/login')
+          }
+      })
     }
   }
 

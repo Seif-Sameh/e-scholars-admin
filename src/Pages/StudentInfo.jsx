@@ -3,6 +3,8 @@ import { useLocation, useParams } from 'react-router'
 import axios from 'axios'
 import { FaCheck, FaEdit, FaTimes } from 'react-icons/fa' 
 import { LuGift } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
+
 
 const StudentInfo = () => {
 
@@ -27,6 +29,8 @@ const StudentInfo = () => {
     const [bonus, setBonus] = useState('')
     const [invalideBonus, setInvalidBonus] = useState(false)
 
+    const navigate = useNavigate()
+
     const requestAttendance = () => {
         const response = axios.post("https://e-scholars.com/teacher/student_page/retrieve_attendance.php", { grade: grade, section: section, student_name: state.student_name }, {withCredentials: true})
             .then((res) => res.data)
@@ -35,6 +39,11 @@ const StudentInfo = () => {
                     setFound(data.found)
                     setAttendance(data.attendance)
                     setMonth(data.month)
+                }
+            })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
                 }
             })
     }
@@ -50,6 +59,11 @@ const StudentInfo = () => {
                     requestAttendance()
                 }
             })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
+                }
+            })
         : setEditMode('')
     }
 
@@ -63,6 +77,11 @@ const StudentInfo = () => {
                     setTotalMarks(data.total_marks)
                 }
             })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
+                }
+            })
     }
     const addBonus = () => {
         if(!isNaN(bonus)){
@@ -74,6 +93,11 @@ const StudentInfo = () => {
                     setBonus('')
                     setInvalidBonus(false)
                     requestQuizzes()
+                }
+            })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
                 }
             })
         }

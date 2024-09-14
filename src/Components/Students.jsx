@@ -4,7 +4,7 @@ import { FaPlus } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa";
 import { TiCancel } from "react-icons/ti";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { SlOptions } from "react-icons/sl";
 import { FaClipboardCheck } from "react-icons/fa";
 import { FaCheckCircle } from "react-icons/fa";
@@ -21,6 +21,8 @@ const Students = ({ grade, section }) => {
     const [attendance, setAttendance] = useState([])
     const [showAttendanceSuccess, setShowAttendanceSuccess] = useState(false);
 
+    const navigate = useNavigate()
+
     const requestStudents = () => {
         const response = axios.post("https://e-scholars.com/teacher/students/retrieve_students.php", { grade: grade, section: section }, {withCredentials: true})
             .then((res) => res.data)
@@ -28,6 +30,11 @@ const Students = ({ grade, section }) => {
                 if (data.status == 'OK') {
                     setFound(data.found)
                     setStudents(data.students)
+                }
+            })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
                 }
             })
     }
@@ -44,6 +51,11 @@ const Students = ({ grade, section }) => {
                     requestStudents()
                 }
             })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
+                }
+            })
     }
     const deactivateStudent = (name) => {
         const response = axios.post("https://e-scholars.com/teacher/students/deactivate_student.php", { name: name, grade: grade, section: section }, {withCredentials: true})
@@ -51,6 +63,11 @@ const Students = ({ grade, section }) => {
             .then((data) => {
                 if (data.status == 'OK') {
                     requestStudents()
+                }
+            })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
                 }
             })
     }
@@ -62,6 +79,11 @@ const Students = ({ grade, section }) => {
                 if (data.status == 'OK') {
                     requestStudents()
                     setConfirm(false)
+                }
+            })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
                 }
             })
     }
@@ -86,8 +108,13 @@ const Students = ({ grade, section }) => {
                     console.error("Failed to submit attendance:", data.message);
                 }
             })
-            .catch((error) => {
-                console.error("Error submitting attendance:", error);
+            .catch((err) => {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
+                }
+                else{   
+                    console.error("Error submitting attendance:", err);
+                }
             });
     };
 

@@ -4,7 +4,7 @@ import axios from 'axios'
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import image2 from '../assets/image-3.jpg'
 import Confirmation from '../Components/Confirmation';
 
@@ -18,6 +18,8 @@ const Classes = () => {
     const [toggleOptions, setToggleOptions] = useState(false)
     const [selected, setSelected] = useState('')
 
+    const navigate = useNavigate()
+
     const requestGrades = () => {
         const response = axios.post("https://e-scholars.com/teacher/classes/current_classes.php", {}, {withCredentials: true})
             .then((res) => (res.data))
@@ -28,6 +30,11 @@ const Classes = () => {
                     setClasses(classes.sort())
                 }
             })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
+                }
+            })
     }
     const deleteGrade = (grade, section) => {
         const response = axios.post("https://e-scholars.com/teacher/classes/remove_grade.php", { grade, section }, {withCredentials: true})
@@ -35,6 +42,11 @@ const Classes = () => {
                 if (res.data.status == 'OK') {
                     requestGrades()
                     setConfirm(false)
+                }
+            })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
                 }
             })
     }

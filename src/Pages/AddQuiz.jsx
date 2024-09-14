@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FaPlus } from "react-icons/fa";
 import MCQQuestion from '../Components/MCQQuestion';
-import { v4 as uuidv4 } from 'uuid';  // Add this line
+import { v4 as uuidv4 } from 'uuid';
 import RearrangeQuestion from '../Components/RearrangeQuestion';
 import { GoCheckCircleFill } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 
 const AddQuiz = () => {
   const [title, setTitle] = useState('');
@@ -18,6 +19,8 @@ const AddQuiz = () => {
   const [alreadyExists, setAlreadyExists] = useState(false);
   const [validationErrors, setValidationErrors] = useState([]);
   const [emptyQuestions, setEmptyQuestions] = useState(false);
+
+  const navigate = useNavigate()
 
   const addQuiz = () => {
     if (validationErrors.length > 0) {
@@ -36,6 +39,9 @@ const AddQuiz = () => {
         if (err.response.data.status === 'error' && err.response.data.message === 'The same title exists') {
           setAlreadyExists(true);
         }
+        if(!err.response.data.authenticated){
+            navigate('/login')
+        }
       })
       : setEmptyQuestions(true)
 
@@ -48,7 +54,12 @@ const AddQuiz = () => {
         if (data.status == 'OK') {
           setAddedSuccessfully(true)
         }
-      });
+      })
+      .catch((err)=> {
+        if(!err.response.data.authenticated){
+            navigate('/login')
+        }
+    })
   };
 
   useEffect(() => {

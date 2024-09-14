@@ -5,7 +5,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import { IoMdStopwatch } from "react-icons/io"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import image2 from '../assets/image-3.jpg'
 import Confirmation from '../Components/Confirmation';
 
@@ -19,6 +19,8 @@ const QuizzesMain = () => {
     const [toggleOptions, setToggleOptions] = useState(false)
     const [selected, setSelected] = useState('')
 
+    const navigate = useNavigate()
+
     const requestQuizzes = () => {
         const response = axios.post("https://e-scholars.com/teacher/quizzes/retrieve_quizzes.php", {}, {withCredentials: true})
             .then((res) => (res.data))
@@ -26,6 +28,11 @@ const QuizzesMain = () => {
                 if (data.status == 'OK') {
                     setFound(data.found)
                     setQuizzes(data.quizzes)
+                }
+            })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
                 }
             })
     }
@@ -37,6 +44,11 @@ const QuizzesMain = () => {
                 if (data.status == 'OK') {
                     requestQuizzes()
                     setConfirm(false)
+                }
+            })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
                 }
             })
     }

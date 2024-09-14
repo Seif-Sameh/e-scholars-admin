@@ -8,10 +8,14 @@ import { MdSend } from "react-icons/md";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { FaArrowLeft } from "react-icons/fa6";
 import Chat from './Chat';
+import { useNavigate } from "react-router-dom";
 
 const Notifications = () => {
     const [classes, setClasses] = useState([])
     const [found, setFound] = useState(false)
+
+    const navigate = useNavigate()
+
     const requestGrades = () => {
         const response = axios.post("https://e-scholars.com/teacher/classes/current_classes.php", {}, {withCredentials: true})
             .then((res) => (res.data))
@@ -20,6 +24,11 @@ const Notifications = () => {
                     setFound(data.found)
                     const classes = data.classes
                     setClasses(classes.sort())
+                }
+            })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
                 }
             })
     }
@@ -73,6 +82,11 @@ const Notifications = () => {
                         dateRef.current.value = ''
                     }
                 })
+                .catch((err)=> {
+                    if(!err.response.data.authenticated){
+                        navigate('/login')
+                    }
+                })
         }
         else {
             let requestData = []
@@ -96,6 +110,11 @@ const Notifications = () => {
                     setMessage('')
                     messageRef.current.value = ''
                     dateRef.current.value = ''
+                })
+                .catch((err)=> {
+                    if(!err.response.data.authenticated){
+                        navigate('/login')
+                    }
                 })
         }
     }

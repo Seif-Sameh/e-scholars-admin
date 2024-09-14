@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import axios from 'axios';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FaPlus } from "react-icons/fa";
 import { VscDebugBreakpointLog } from "react-icons/vsc";
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -22,6 +22,7 @@ const Tasks = ({ grade, section }) => {
     const [deletingData, setDeletingData] = useState([])
     const [confirm, setConfirm] = useState(false)
 
+    const navigate = useNavigate()
 
     const requestTasks = () => {
         const response = axios.post("https://e-scholars.com/teacher/tasks/class_tasks.php", { grade, section }, {withCredentials: true})
@@ -30,6 +31,11 @@ const Tasks = ({ grade, section }) => {
                 if (data.status == 'OK') {
                     setFound(data.found)
                     setTasks(data.task)
+                }
+            })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
                 }
             })
     }
@@ -42,6 +48,11 @@ const Tasks = ({ grade, section }) => {
                     requestTasks()
                 }
             })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
+                }
+            })
     }
     const editTask = (id, expire_date, task) => {
         const response = axios.post("https://e-scholars.com/teacher/tasks/update_task.php", { grade, section, id, expire_date, task }, {withCredentials: true})
@@ -49,6 +60,11 @@ const Tasks = ({ grade, section }) => {
             .then((data) => {
                 if (data.status == 'OK') {
                     requestTasks()
+                }
+            })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
                 }
             })
     }

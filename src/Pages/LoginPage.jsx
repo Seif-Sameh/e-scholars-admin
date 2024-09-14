@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import  image1  from '../assets/image-1.jpg'
 import  image4  from '../assets/image-4.jpg'
 import axios from 'axios';

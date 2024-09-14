@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useParams } from 'react-router'
 import Students from '../Components/Students'
 import Materials from '../Components/Materials'
@@ -6,12 +6,14 @@ import Tasks from '../Components/Tasks'
 import Quizzes from '../Components/Quizzes'
 import Schedule from '../Components/Schedule'
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 const Class = () => {
 
     const params = useParams()
     const grade = Number(params['grade'])
     const section = params['section']
+    const navigate = useNavigate()
 
     const getCredentials = () => {
         axios.post("https://e-scholars.com/teacher/credentials/get_class_credentials.php", 
@@ -25,9 +27,14 @@ const Class = () => {
             document.body.appendChild(link);
             link.click();
             link.remove();
-        }).catch(error => {
-            console.error('Error downloading the file:', error);
-        });
+        }).catch(err => {
+            if(!err.response.data.authenticated){
+                navigate('/login')
+            }
+            else{
+                console.error('Error downloading the file:', err);
+            }
+        })
     }
 
     return (

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
 import { IoImage } from "react-icons/io5";
 import { FaFilePdf } from "react-icons/fa6";
@@ -23,6 +24,7 @@ const Materials = ({ grade, section }) => {
     const [toggleOptions, setToggleOptions] = useState(false)
     const [selected, setSelected] = useState('')
 
+    const navigate = useNavigate()
     const requestMaterials = () => {
         const response = axios.post("https://e-scholars.com/teacher/materials/class_materials.php", { grade, section }, {withCredentials: true})
             .then((res) => (res.data))
@@ -30,6 +32,11 @@ const Materials = ({ grade, section }) => {
                 if (data.status == 'OK') {
                     setFound(data.found)
                     setMaterials(data.materials)
+                }
+            })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
                 }
             })
     }
@@ -40,6 +47,11 @@ const Materials = ({ grade, section }) => {
                 if (data.status == 'OK') {
                     setConfirm(false)
                     requestMaterials()
+                }
+            })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
                 }
             })
     }

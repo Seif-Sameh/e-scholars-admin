@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FaPlus } from "react-icons/fa";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaTrashAlt } from "react-icons/fa";
@@ -17,6 +17,8 @@ const Schedule = ({ grade, section }) => {
     const [toggleOptions, setToggleOptions] = useState(false)
     const [selected, setSelected] = useState('')
 
+    const navigate = useNavigate()
+
     const requestSchedule = () => {
         const response = axios.post("https://e-scholars.com/teacher/classes/class_schedule.php", { grade, section }, {withCredentials: true})
             .then((res) => (res.data))
@@ -24,6 +26,11 @@ const Schedule = ({ grade, section }) => {
                 if (data.status == 'OK') {
                     setSchedule(data.schedule)
                     setFound(data.found)
+                }
+            })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
                 }
             })
     }
@@ -34,6 +41,11 @@ const Schedule = ({ grade, section }) => {
                 if (data.status == 'OK') {
                     setConfirm(false)
                     requestSchedule()
+                }
+            })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
                 }
             })
     }

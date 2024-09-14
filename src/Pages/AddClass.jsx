@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { GoCheckCircleFill } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 
 
 const AddClass = () => {
@@ -13,6 +14,8 @@ const AddClass = () => {
   const [classExists, setClassesExists] = useState(false)
   const [failed, setFailed] = useState(false)
   const [classes, setClasses] = useState([])
+
+  const navigate = useNavigate()
 
   const addGrade = (grade, section) => {
     const response = axios.post("https://e-scholars.com/teacher/classes/add_grade.php", { grade, section }, {withCredentials: true})
@@ -28,6 +31,11 @@ const AddClass = () => {
           setFailed(true)
         }
       })
+      .catch((err)=> {
+        if(!err.response.data.authenticated){
+            navigate('/login')
+        }
+    })
   }
 
   const requestGrades = () => {
@@ -37,6 +45,11 @@ const AddClass = () => {
         const classes = data.classes
         setClasses(classes.sort())
       })
+      .catch((err)=> {
+        if(!err.response.data.authenticated){
+            navigate('/login')
+        }
+    })
   }
 
   useEffect(() => {

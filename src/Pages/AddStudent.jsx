@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { GoCheckCircleFill } from "react-icons/go";
 import { useParams } from 'react-router';
+import { useNavigate } from "react-router-dom";
 
 
 const AddClass = () => {
@@ -12,11 +13,8 @@ const AddClass = () => {
   const [existingStudent, setExistingStudent] = useState(false)
   const [errorMessage, setErrorMessage] = useState(false)
 
-  
-
-
   const params = useParams()
-  
+  const navigate = useNavigate()
 
   const addStudent = () => {
     const response = axios.post("https://e-scholars.com/teacher/students/add_student.php", {name: name,  grade:params.grade, section: params.section, phone_number: phoneNumber }, {withCredentials: true})
@@ -32,6 +30,11 @@ const AddClass = () => {
           setErrorMessage(data.message)
         }
       })
+      .catch((err)=> {
+        if(!err.response.data.authenticated){
+            navigate('/login')
+        }
+    })
   }
 
 

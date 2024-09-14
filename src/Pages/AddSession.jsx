@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { GoCheckCircleFill } from "react-icons/go";
 import { useParams } from 'react-router';
-
+import { useNavigate } from "react-router-dom";
 
 const AddSession = () => {
 
   const params = useParams()
-
+  const navigate = useNavigate()
 
   const [day, setDay] = useState('')
   const [from, setFrom] = useState('')
@@ -34,6 +34,11 @@ const AddSession = () => {
           setFailed(true)
         }
       })
+      .catch((err)=> {
+        if(!err.response.data.authenticated){
+            navigate('/login')
+        }
+    })
   }
 
   return (

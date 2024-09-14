@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const MaterialPage = () => {
     const params = useParams();
@@ -10,6 +11,7 @@ const MaterialPage = () => {
 
     const location = useLocation()
     const {state} = location
+    const navigate = useNavigate()
 
     const requestMaterial = () => {
         axios.post("https://e-scholars.com/teacher/materials/view_materials.php", {
@@ -27,8 +29,13 @@ const MaterialPage = () => {
             setLoading(false);
         })
         .catch((err) => {
-            setError('An error occurred while fetching the material');
-            setLoading(false);
+            if(!err.response.data.authenticated){
+                navigate('/login')
+            }
+            else{   
+                setError('An error occurred while fetching the material');
+                setLoading(false);
+            }
         });
     };
 

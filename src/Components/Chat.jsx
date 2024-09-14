@@ -5,6 +5,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaTrashAlt } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import Confirmation from './Confirmation';
+import { useNavigate } from "react-router-dom";
 
 
 const Chat = ({chatParams, New, setNew, setEditing, edited, setEdited, inputMessageRef, message, expirationDate, setExpirationDate, setMessage,  setSelectDate, dateRef}) => {
@@ -18,7 +19,7 @@ const Chat = ({chatParams, New, setNew, setEditing, edited, setEdited, inputMess
     const [messageData, setMessageData] = useState(null)
 
     const chat = useRef()
-
+    const navigate = useNavigate()
     const fetchNotifications = () =>{
         const response = axios.post("https://e-scholars.com/teacher/notifications/class_notifications.php", { grade: chatParams[0], section: chatParams[1] }, {withCredentials: true})
         .then((res) => (res.data))
@@ -26,6 +27,11 @@ const Chat = ({chatParams, New, setNew, setEditing, edited, setEdited, inputMess
             setFound( data.found)
             setNotifications(data.notification)
             setNew(false)
+        })
+        .catch((err)=> {
+            if(!err.response.data.authenticated){
+                navigate('/login')
+            }
         })
     }
     const deleteNotification = (grade, section, id) =>{
@@ -35,6 +41,11 @@ const Chat = ({chatParams, New, setNew, setEditing, edited, setEdited, inputMess
             if(data.status == 'OK'){
                 setConfirmation(false)
                 fetchNotifications()
+            }
+        })
+        .catch((err)=> {
+            if(!err.response.data.authenticated){
+                navigate('/login')
             }
         })
     }
@@ -50,6 +61,11 @@ const Chat = ({chatParams, New, setNew, setEditing, edited, setEdited, inputMess
                 setExpirationDate('')
                 setMessage('')
                 setSelectDate(false)
+            }
+        })
+        .catch((err)=> {
+            if(!err.response.data.authenticated){
+                navigate('/login')
             }
         })
     }

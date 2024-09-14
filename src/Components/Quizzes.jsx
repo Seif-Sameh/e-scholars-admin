@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FaPlus } from 'react-icons/fa'
-import { FaTrashAlt } from 'react-icons/fa'
 import { IoMdStopwatch } from "react-icons/io"
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { RiCloseFill } from "react-icons/ri";
@@ -26,12 +25,19 @@ const Quizzes = () => {
     const [allQuizzes, setAllQuizzes] = useState([])
     const [includeMode, setIncludeMode] = useState(false)
 
+    const navigate = useNavigate()
+
     const requestQuizes = () => {
         axios.post('https://e-scholars.com/teacher/quizzes/class_quizzes.php', { grade, section }, {withCredentials: true})
             .then((res) => {
                 if (res.data.status === 'OK') {
                     setFound(res.data.found)
                     res.data.found && setClassQuizzes(res.data.class_quizzes)
+                }
+            })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
                 }
             })
     }
@@ -44,6 +50,11 @@ const Quizzes = () => {
                     setIncludeMode(true)
                 }
             })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
+                }
+            })
     }
     const includeQuizzes = () => {
         const response = axios.post("https://e-scholars.com/teacher/quizzes/include_quizzes.php", { grade, section, quizzes: classQuizzes.map((q) => q.quiz_id) }, {withCredentials: true})
@@ -51,6 +62,11 @@ const Quizzes = () => {
             .then((data) => {
                 if (data.status == 'OK') {
                     requestQuizes()
+                }
+            })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
                 }
             })
     }
@@ -62,6 +78,11 @@ const Quizzes = () => {
                     requestQuizes()
                 }
             })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
+                }
+            })
     }
     const deactivateQuiz = (quiz_id) => {
         const response = axios.post("https://e-scholars.com/teacher/quizzes/deactivate_quiz.php", { grade, section, quiz_id }, {withCredentials: true})
@@ -69,6 +90,11 @@ const Quizzes = () => {
             .then((data) => {
                 if (data.status == 'OK') {
                     requestQuizes()
+                }
+            })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
                 }
             })
     }

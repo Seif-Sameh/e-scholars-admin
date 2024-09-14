@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
 import axios from 'axios';
-
+import { useNavigate } from "react-router-dom";
 
 const Responses = ({ grade, section }) => {
 
@@ -11,6 +11,7 @@ const Responses = ({ grade, section }) => {
     const [absence, setAbsence] = useState([])
     const [found, setFound] = useState(false)
 
+    const navigate = useNavigate()
 
     const requestResponses = () => {
         const response = axios.post("https://e-scholars.com/teacher/quizzes/quiz_attendance.php", { grade: grade, section: section, quiz_id: Number(params.quiz_id) }, {withCredentials: true})
@@ -20,6 +21,11 @@ const Responses = ({ grade, section }) => {
                     setAbsence(data.absent)
                     setAttendance(data.attended)
                     setFound(data.found)
+                }
+            })
+            .catch((err)=> {
+                if(!err.response.data.authenticated){
+                    navigate('/login')
                 }
             })
     }

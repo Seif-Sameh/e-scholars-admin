@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { GoCheckCircleFill } from "react-icons/go";
 import { useParams } from 'react-router';
+import { useNavigate } from "react-router-dom";
 
 const AddClass = () => {
 
@@ -11,7 +12,7 @@ const AddClass = () => {
   const [addedSuccess, setAddedSuccess] = useState(false)
 
   const params = useParams()
-
+  const navigate = useNavigate()
 
   const addTask= () => {
 
@@ -22,6 +23,11 @@ const AddClass = () => {
           setAddedSuccess(true)
         }
       })
+      .catch((err)=> {
+        if(!err.response.data.authenticated){
+            navigate('/login')
+        }
+    })
   }
 
 
