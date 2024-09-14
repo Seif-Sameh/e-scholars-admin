@@ -40,7 +40,7 @@ const LoginPage = () => {
 
     
     return (
-        <div className='w-screen md:h-screen flex justify-center max-md:py-10 items-center bg-[#658cc2]'>
+        <div className='w-screen md:h-screen max-md:h-full flex justify-center max-md:py-10 items-center bg-[#658cc2]'>
             <div className='flex flex-row-reverse w-2/3 md:h-3/4 max-sm:w-5/6 rounded-md max-md:flex-col-reverse'>
                 <div className='w-full md:w-1/2 h-full bg-white  flex flex-col justify-center md:rounded-r-md max-md:rounded-b-md p-5'>
                     <div className='text-center font-bold text-[30px] mb-10'>
