@@ -212,7 +212,7 @@ const AddClass = () => {
 
                       {invalidType && <p className='text-red-600 text-sm text-center'>Invalid type. Please choose the right document format.</p>}
                       {/* {errorMessage != '' && <p className='text-red-600 text-sm text-center'>{errorMessage}</p>} */}
-                      <input type="submit" className={`font-bold py-2 rounded-full mt-4 ${uploadStatus == 'uploading' ? 'cursor-not-allowed bg-slate-300 text-[#054bb4]' : 'cursor-pointer bg-[#054bb4] text-white'}`} value={'Submit'} />
+                      <input type="submit" disabled={uploadStatus == 'uploading' ? true : false} className={`font-bold py-2 rounded-full mt-4 ${uploadStatus == 'uploading' ? 'cursor-not-allowed bg-slate-300 text-[#054bb4]' : 'cursor-pointer bg-[#054bb4] text-white'}`} value={'Submit'} />
                     </form>
                   </div>
                 </>
