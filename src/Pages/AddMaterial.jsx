@@ -18,6 +18,9 @@ const AddClass = () => {
   const [addedSuccess, setAddedSuccess] = useState(false)
   const [invalidType, setInvalidType] = useState(false)
   const [errorMessage, setErrorMessage] = useState(false)
+  const [progress, setProgress] = useState(0)
+  const [uploadStatus, setUploadStatus] = useState(0)
+
 
   const params = useParams()
   const navigate = useNavigate()
@@ -36,7 +39,7 @@ const AddClass = () => {
         headers: {
           "Content-Type": 'multipart/form-data'
         },
-        withCredentials: true
+        withCredentials: true,
       })
         .then((res) => (res.data))
         .then((data) => {
@@ -58,12 +61,17 @@ const AddClass = () => {
     }
     else {
       file.append('file', material)
+      setUploadStatus('uploading')
 
       const response = axios.post("https://e-scholars.com/teacher/materials/push_materials.php", file, {
         headers: {
           "Content-Type": 'multipart/form-data'
         },
-        withCredentials: true
+        withCredentials: true,
+        onUploadProgress : (progressEvent) => {
+          const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+          setProgress (percentCompleted);
+        }
       })
         .then((res) => (res.data))
         .then((data) => {
@@ -164,11 +172,13 @@ const AddClass = () => {
                                   <input type="file" name="upload" id="upload" required hidden
                                     onChange={(e) => {
                                       setMaterial(e.target.files[0])
+                                      setUploadStatus('selected')
                                     }}
                                   />
                                 </>
                               ) : (
-                                <div className='w-fit max-w-full flex gap-3 p-2 bg-slate-300 text-[#054bb4] rounded-md items-center' >
+                                <div className='flex flex-col gap-3 w-full'>
+                                <div className='w-fit max-w-full flex gap-3 p-2 bg-slate-200 text-[#054bb4] rounded-md items-center' >
                                   {type == 'Image' && <IoImage size={30} />}
                                   {type == 'PDF' && <FaFilePdf size={25} />}
                                   {type == 'Audio' && <FaFileAudio size={25} />}
@@ -177,9 +187,14 @@ const AddClass = () => {
                                     onClick={() => {
                                       setMaterial(null)
                                     }}
-                                  >
+                                    >
                                     <IoCloseCircleOutline size={20} />
+                                    </div>
                                   </div>
+                                    {uploadStatus == 'uploading' && 
+                                    <div className='w-full h-2 rounded-full bg-slate-300'>
+                                      <div className={`w-[${progress}%] bg-[#054bb4] h-2`}></div>
+                                    </div>}
                                 </div>
                               )
                             }
