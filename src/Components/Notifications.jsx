@@ -117,10 +117,10 @@ const Notifications = () => {
             // Detect if keyboard is visible
             if (viewportHeight < fullHeight * 0.8) {
                 setIsKeyboardVisible(true);
-                setChatboxHeight('h-64'); // Shorter height when keyboard is open
+                setChatboxHeight('h-40'); // Shorter height when keyboard is open
             } else {
                 setIsKeyboardVisible(false);
-                setChatboxHeight('h-96'); // Default height when keyboard is hidden
+                setChatboxHeight('h-64'); // Default height when keyboard is hidden
             }
         };
 
