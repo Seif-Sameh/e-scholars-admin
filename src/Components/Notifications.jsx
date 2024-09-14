@@ -220,7 +220,9 @@ const Notifications = () => {
                                 ))}
                             </div>
                         ) : (
+                            <div className='relative'>
                             <Chat chatParams={chatParams} New={New} setNew={setNew} setEditing={setEditing} edited={edited} setEdited={setEdited} inputMessageRef={messageRef} dateRef={dateRef} message={message} expirationDate={expirationDate} setExpirationDate={setExpirationDate} setMessage={setMessage} setSelectDate={setSelectDate} />
+                            </div>
                         )
                         }
                         {/* sending form */}
