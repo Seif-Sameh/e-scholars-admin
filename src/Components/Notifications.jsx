@@ -84,7 +84,10 @@ const Notifications = () => {
             }
 
             const response = axios.post("https://e-scholars.com/teacher/notifications/push_notification.php", { request_data: requestData }, {withCredentials: true})
-                .then((res) => {
+                .then((res) => (res.data))
+                .then((data) => {
+                    if(data.status == 'OK')
+                    setNew(true)
                     setExpirationDate('')
                     setSelectDate(false)
                     setSelectingGrades(false)
