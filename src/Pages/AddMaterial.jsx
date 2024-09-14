@@ -193,7 +193,7 @@ const AddClass = () => {
                                   </div>
                                     {uploadStatus == 'uploading' && 
                                     <div className='w-full h-2 rounded-full bg-slate-300'>
-                                      <div className={`w-[${progress}%] bg-[#054bb4] h-2`}></div>
+                                      <div className={`bg-[#054bb4] h-2 rounded-l-full`} style={{width: `${progress}%`}}></div>
                                     </div>}
                                 </div>
                               )
