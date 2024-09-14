@@ -122,7 +122,7 @@ const Notifications = () => {
                     </div>
 
                 ) : (
-                    <div className='w-[300px] sm:h-[500px] max-sm:h-[60%] fixed z-[200] bottom-0 right-5 bg-white rounded-t-md flex flex-col justify-between shadow-lg'>
+                    <div className='w-[300px] sm:h-[500px] max-sm:h-[55%] fixed z-[200] bottom-0 right-5 bg-white rounded-t-md flex flex-col justify-between shadow-lg'>
                         <div className='h-[45px] py-2 px-4 bg-[#054bb4] flex justify-between rounded-t-md items-center' onClick={() => setToggleNotifications(!toggleNotifications)}>
                             <p className='text-white font-semibold text-lg'>
                                 Notifications
