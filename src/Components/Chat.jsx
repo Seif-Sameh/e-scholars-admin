@@ -90,7 +90,7 @@ const Chat = ({chatParams, New, setNew, setEditing, edited, setEdited, inputMess
   return (
     <>
     {confirmation && <Confirmation type={'message'} data={[chatParams[0], chatParams[1], messageData[0]]} handler={deleteNotification} cancelHandler={setConfirmation}/>}
-    <div className='w-full flex-1 flex flex-col p-3 overflow-y-scroll h-full'>
+    <div className='w-full flex-1 flex flex-col p-3 overflow-y-scroll'>
         <div className='flex flex-col gap-2'>
         {
             found ? (
