@@ -55,9 +55,9 @@ const Chat = ({chatParams, New, setNew, setEditing, edited, setEdited, inputMess
     }
         
     useEffect(() => {
-        New && fetchNotifications() 
+        fetchNotifications() 
         return(() => setNotifications([]))
-    }, [New])
+    }, [New, notifications])
 
     useEffect(() => {
         fetchNotifications()

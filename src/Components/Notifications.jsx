@@ -62,6 +62,7 @@ const Notifications = () => {
                 .then((res) => (res.data))
                 .then((data) => {
                     if (data.status == 'OK') {
+                        setNew(true)
                         setExpirationDate('')
                         setSelectDate(false)
                         setSelectingGrades(false)
@@ -70,7 +71,6 @@ const Notifications = () => {
                         setMessage('')
                         messageRef.current.value = ''
                         dateRef.current.value = ''
-                        setNew(true)
                     }
                 })
         }
