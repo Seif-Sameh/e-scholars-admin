@@ -13,7 +13,7 @@ const Notifications = () => {
     const [classes, setClasses] = useState([])
     const [found, setFound] = useState(false)
     const requestGrades = () => {
-        const response = axios.post("https://e-scholars.com/teacher/classes/current_classes.php", {}, {withCredentials: true})
+        const response = axios.post("https://e-scholars.com/teacher/classes/current_classes.php", {}, { withCredentials: true })
             .then((res) => (res.data))
             .then((data) => {
                 if (data.status == 'OK') {
@@ -58,7 +58,7 @@ const Notifications = () => {
 
     const pushNotification = () => {
         if (selectingAll) {
-            const response = axios.post("https://e-scholars.com/teacher/notifications/push_notification.php", { request_data: [{ message: message, grade: 'all', section: 'all', expire_date: expirationDate }] }, {withCredentials: true})
+            const response = axios.post("https://e-scholars.com/teacher/notifications/push_notification.php", { request_data: [{ message: message, grade: 'all', section: 'all', expire_date: expirationDate }] }, { withCredentials: true })
                 .then((res) => (res.data))
                 .then((data) => {
                     if (data.status == 'OK') {
@@ -83,11 +83,11 @@ const Notifications = () => {
                 requestData = [{ message: message, grade: chatParams[0], section: chatParams[1], expire_date: expirationDate }]
             }
 
-            const response = axios.post("https://e-scholars.com/teacher/notifications/push_notification.php", { request_data: requestData }, {withCredentials: true})
+            const response = axios.post("https://e-scholars.com/teacher/notifications/push_notification.php", { request_data: requestData }, { withCredentials: true })
                 .then((res) => (res.data))
                 .then((data) => {
-                    if(data.status == 'OK')
-                    setNew(true)
+                    if (data.status == 'OK')
+                        setNew(true)
                     setExpirationDate('')
                     setSelectDate(false)
                     setSelectingGrades(false)
@@ -106,6 +106,31 @@ const Notifications = () => {
         requestGrades()
     }, [, toggleNotifications])
 
+    const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
+    const [chatboxHeight, setChatboxHeight] = useState('h-96'); // Default chatbox height in Tailwind classes
+
+    useEffect(() => {
+        const handleViewportChange = () => {
+            const viewportHeight = window.visualViewport.height;
+            const fullHeight = window.innerHeight;
+
+            // Detect if keyboard is visible
+            if (viewportHeight < fullHeight * 0.8) {
+                setIsKeyboardVisible(true);
+                setChatboxHeight('h-64'); // Shorter height when keyboard is open
+            } else {
+                setIsKeyboardVisible(false);
+                setChatboxHeight('h-96'); // Default height when keyboard is hidden
+            }
+        };
+
+        window.visualViewport.addEventListener('resize', handleViewportChange);
+
+        return () => {
+            window.visualViewport.removeEventListener('resize', handleViewportChange);
+        };
+    }, []);
+
     return (
         <>
             {
@@ -122,7 +147,7 @@ const Notifications = () => {
                     </div>
 
                 ) : (
-                    <div className='w-[300px] sm:h-[500px] max-sm:h-[55%] fixed z-[200] bottom-0 right-5 bg-white rounded-t-md flex flex-col justify-between shadow-lg'>
+                    <div className={`w-[300px] sm:h-[500px] max-sm:${chatboxHeight} fixed z-[200] bottom-0 right-5 bg-white rounded-t-md flex flex-col justify-between shadow-lg`}>
                         <div className='h-[45px] py-2 px-4 bg-[#054bb4] flex justify-between rounded-t-md items-center' onClick={() => setToggleNotifications(!toggleNotifications)}>
                             <p className='text-white font-semibold text-lg'>
                                 Notifications
@@ -220,7 +245,7 @@ const Notifications = () => {
                                         if (editing) {
                                             setEdited(true)
                                         }
-                                        else{
+                                        else {
                                             if (expirationDate == '') {
                                                 setSelectDate(true)
                                             }
