@@ -103,8 +103,10 @@ const Tasks = ({ grade, section }) => {
                                             item.category == type && (
                                                 <div key={item.id} className='flex justify-between gap-3 relative '>
                                                     <div className='flex flex-1 flex-col gap-1'>
-                                                        <div className='w-full flex items-center gap-2'>
+                                                        <div className='w-full flex gap-2'>
+                                                            <div className='w-[20px] pt-[5px]'>
                                                             <PiDiamondsFourLight size={20} className='text-[#054bb4]' />
+                                                            </div>
                                                             {selected == item.id && editing ? (
                                                                 <input type='text' defaultValue={item.task} className='border-2 text-xl w-full border-b-[#054bb4] outline-none border-white rounded-md '
                                                                     onChange={(e) => setTask(e.target.value)}
