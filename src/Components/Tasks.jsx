@@ -101,7 +101,7 @@ const Tasks = ({ grade, section }) => {
                                         const date = new Date(item.Expire_date * 1000)
                                         return (
                                             item.category == type && (
-                                                <div key={item.id} className='flex w-full justify-between gap-3 relative '>
+                                                <div key={item.id} className='flex w-full relative '>
                                                     <div className='flex max-w-full flex-col gap-1'>
                                                         <div className='w-full flex gap-2'>
                                                             <div className='w-[20px] pt-[5px]'>
