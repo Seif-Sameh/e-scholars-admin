@@ -102,8 +102,8 @@ const Tasks = ({ grade, section }) => {
                                         return (
                                             item.category == type && (
                                                 <div key={item.id} className='flex w-full justify-between relative '>
-                                                    <div className='flex flex-col gap-1'>
-                                                        <div className='w-[80%] flex gap-2'>
+                                                    <div className='flex w-[80%] flex-col gap-1'>
+                                                        <div className='w-full flex gap-2'>
                                                             <div className='w-[20px] pt-[5px]'>
                                                             <PiDiamondsFourLight size={20} className='text-[#054bb4]' />
                                                             </div>
@@ -115,7 +115,7 @@ const Tasks = ({ grade, section }) => {
                                                                 <p className='text-xl w-full font-semibold break-words text-wrap'>{item.task}</p>
                                                             )}
                                                         </div> 
-                                                        <div className='flex w-[80%] flex-col text-slate-600 pl-7'>
+                                                        <div className='flex w-full flex-col text-slate-600 pl-7'>
                                                             {selected == item.id && editing ?
                                                                 <div className=' flex gap-2 text-sm mt-1'>
                                                                     <span>Expires on </span>
