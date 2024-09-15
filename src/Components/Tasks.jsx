@@ -101,7 +101,7 @@ const Tasks = ({ grade, section }) => {
                                         const date = new Date(item.Expire_date * 1000)
                                         return (
                                             item.category == type && (
-                                                <div key={item.id} className='flex w-full relative '>
+                                                <div key={item.id} className='flex w-full relative justify-between'>
                                                     <div className='flex w-[85%] flex-col gap-1 word-break'>
                                                         <div className='w-full flex gap-2'>
                                                             <div className='w-[20px] pt-[5px]'>
@@ -112,7 +112,9 @@ const Tasks = ({ grade, section }) => {
                                                                     onChange={(e) => setTask(e.target.value)}
                                                                 />
                                                             ) : (
-                                                                <p className='text-xl w-full font-semibold break-words text-wrap pr-2'>{item.task}</p>
+                                                                <div className='w-full'>
+                                                                <p className='text-xl w-full font-semibold break-words text-wrap'>{item.task}</p>
+                                                                </div>
                                                             )}
                                                         </div> 
                                                         <div className='flex w-full flex-col text-slate-600 pl-7'>
