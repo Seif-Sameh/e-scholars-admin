@@ -24,7 +24,7 @@ const Students = ({ grade, section }) => {
     const navigate = useNavigate()
 
     const requestStudents = () => {
-        const response = axios.post("https://e-scholars.com/teacher/students/retrieve_students.php", { grade: grade, section: section }, {withCredentials: true})
+        const response = axios.post("https://e-scholars.com/teacher/students/retrieve_students.php", { grade: grade, section: section }, { withCredentials: true })
             .then((res) => res.data)
             .then((data) => {
                 if (data.status == 'OK') {
@@ -32,8 +32,8 @@ const Students = ({ grade, section }) => {
                     setStudents(data.students)
                 }
             })
-            .catch((err)=> {
-                if(!err.response.data.authenticated){
+            .catch((err) => {
+                if (!err.response.data.authenticated) {
                     navigate('/login')
                 }
             })
@@ -44,52 +44,7 @@ const Students = ({ grade, section }) => {
     }, [])
 
     const activateStudent = (name) => {
-        const response = axios.post("https://e-scholars.com/teacher/students/activate_student.php", { name: name, grade: grade, section: section }, {withCredentials: true})
-            .then((res) => res.data)
-            .then((data) => {
-                if (data.status == 'OK') {
-                    requestStudents()
-                }
-            })
-            .catch((err)=> {
-                if(!err.response.data.authenticated){
-                    navigate('/login')
-                }
-            })
-    }
-    const deactivateStudent = (name) => {
-        const response = axios.post("https://e-scholars.com/teacher/students/deactivate_student.php", { name: name, grade: grade, section: section }, {withCredentials: true})
-            .then((res) => res.data)
-            .then((data) => {
-                if (data.status == 'OK') {
-                    ResetSession(name)
-                }
-            })
-            .catch((err)=> {
-                if(!err.response.data.authenticated){
-                    navigate('/login')
-                }
-            })
-    }
-
-    const deleteStudent = (name) => {
-        const response = axios.post("https://e-scholars.com/teacher/students/remove_student.php", { name: name, grade: grade, section: section }, {withCredentials: true})
-            .then((res) => res.data)
-            .then((data) => {
-                if (data.status == 'OK') {
-                    ResetSession(name)
-                    setConfirm(false)
-                }
-            })
-            .catch((err)=> {
-                if(!err.response.data.authenticated){
-                    navigate('/login')
-                }
-            })
-    }
-
-    const ResetSession = (name) => {
-        const response = axios.post("https://e-scholars.com/teacher/student_page/fuck_student.php", { grade: grade, section: section, student_name: name }, { withCredentials: true })
+        const response = axios.post("https://e-scholars.com/teacher/students/activate_student.php", { name: name, grade: grade, section: section }, { withCredentials: true })
             .then((res) => res.data)
             .then((data) => {
                 if (data.status == 'OK') {
@@ -102,6 +57,49 @@ const Students = ({ grade, section }) => {
                 }
             })
     }
+    const deactivateStudent = (name) => {
+        const response = axios.post("https://e-scholars.com/teacher/students/deactivate_student.php", { name: name, grade: grade, section: section }, { withCredentials: true })
+            .then((res) => res.data)
+            .then((data) => {
+                if (data.status == 'OK') {
+                    ResetSession(name)
+                }
+            })
+            .catch((err) => {
+                if (!err.response.data.authenticated) {
+                    navigate('/login')
+                }
+            })
+    }
+
+    const deleteStudent = (name) => {
+        axios.post("https://e-scholars.com/teacher/student_page/fuck_student.php", { grade: grade, section: section, student_name: name }, { withCredentials: true })
+            .then((res) => res.data)
+            .then((data) => {
+                if (data.status == 'OK') {
+                    const response = axios.post("https://e-scholars.com/teacher/students/remove_student.php", { name: name, grade: grade, section: section }, { withCredentials: true })
+                        .then((res) => res.data)
+                        .then((data) => {
+                            if (data.status == 'OK') {
+                                setConfirm(false)
+                                requestStudents()
+                            }
+                        })
+                        .catch((err) => {
+                            if (!err.response.data.authenticated) {
+                                navigate('/login')
+                            }
+                        })
+                }
+            })
+            .catch((err) => {
+                if (!err.response.data.authenticated) {
+                    navigate('/login')
+                }
+            })
+
+    }
+
 
     const [deletingData, setDeletingData] = useState([])
     const [confirm, setConfirm] = useState(false)
@@ -111,7 +109,7 @@ const Students = ({ grade, section }) => {
             grade: grade,
             section: section,
             attendance: attendance
-        }, {withCredentials: true})
+        }, { withCredentials: true })
             .then((res) => res.data)
             .then((data) => {
                 if (data.status === 'OK') {
@@ -124,10 +122,10 @@ const Students = ({ grade, section }) => {
                 }
             })
             .catch((err) => {
-                if(!err.response.data.authenticated){
+                if (!err.response.data.authenticated) {
                     navigate('/login')
                 }
-                else{   
+                else {
                     console.error("Error submitting attendance:", err);
                 }
             });
@@ -182,82 +180,82 @@ const Students = ({ grade, section }) => {
                                     <tbody >
                                         {
                                             found && students.map((item, index) => (
-                                                    <tr key={index} className={`relative rounded-lg ${index % 2 == 0 ? 'bg-slate-100' : 'bg-gray-300'}`}>
-                                                        <td className='text-center border-y-[6px] border-r-[6px] border-white bg-[#054bb4] rounded-l-lg text-white font-bold  py-2 text-lg max-md:text-base max-sm:text-sm'>
-                                                            {index + 1}
-                                                        </td>
-                                                        <td className='text-start border-y-[6px] border-white pl-4 py-2 text-lg max-md:text-base max-sm:text-sm'>
-                                                            <Link to={`student_info`} state={{student_name: item[0], status: item[1]}}>
-                                                                <div className='flex items-center gap-2'>
-                                                                    <div className={`${item[1] == 'active' ? 'text-green-600' : 'text-slate-400'}`}>
-                                                                        <GrStatusGoodSmall size={12} />
-                                                                    </div>
-                                                                    {item[0]}
+                                                <tr key={index} className={`relative rounded-lg ${index % 2 == 0 ? 'bg-slate-100' : 'bg-gray-300'}`}>
+                                                    <td className='text-center border-y-[6px] border-r-[6px] border-white bg-[#054bb4] rounded-l-lg text-white font-bold  py-2 text-lg max-md:text-base max-sm:text-sm'>
+                                                        {index + 1}
+                                                    </td>
+                                                    <td className='text-start border-y-[6px] border-white pl-4 py-2 text-lg max-md:text-base max-sm:text-sm'>
+                                                        <Link to={`student_info`} state={{ student_name: item[0], status: item[1] }}>
+                                                            <div className='flex items-center gap-2'>
+                                                                <div className={`${item[1] == 'active' ? 'text-green-600' : 'text-slate-400'}`}>
+                                                                    <GrStatusGoodSmall size={12} />
                                                                 </div>
-                                                            </Link>
-                                                        </td>
-                                                        <td className='text-center border-y-[6px] border-white  px-2 py-2 text-lg max-md:text-base  max-sm:text-sm'>{item[2]}</td>
-                                                        <td className='text-end border-y-[6px] border-white rounded-r-lg px-2 text-lg max-md:text-base max-sm:text-sm'>
-                                                            <div className='flex justify-end pr-2'>
-                                                                {attendanceMode ? (
-                                                                    <input
-                                                                        type="checkbox"
-                                                                        checked={attendance.find(a => a.student_name === item[0])?.attendance === 1}
-                                                                        onChange={() => handleAttendanceChange(item[0])}
-                                                                        className="w-5 h-5"
-                                                                    />
-                                                                ) : (
-                                                                    <button className={`w-[20px] h-[30px] flex justify-center items-center rounded-full`}
+                                                                {item[0]}
+                                                            </div>
+                                                        </Link>
+                                                    </td>
+                                                    <td className='text-center border-y-[6px] border-white  px-2 py-2 text-lg max-md:text-base  max-sm:text-sm'>{item[2]}</td>
+                                                    <td className='text-end border-y-[6px] border-white rounded-r-lg px-2 text-lg max-md:text-base max-sm:text-sm'>
+                                                        <div className='flex justify-end pr-2'>
+                                                            {attendanceMode ? (
+                                                                <input
+                                                                    type="checkbox"
+                                                                    checked={attendance.find(a => a.student_name === item[0])?.attendance === 1}
+                                                                    onChange={() => handleAttendanceChange(item[0])}
+                                                                    className="w-5 h-5"
+                                                                />
+                                                            ) : (
+                                                                <button className={`w-[20px] h-[30px] flex justify-center items-center rounded-full`}
+                                                                    onClick={() => {
+                                                                        setSelected(index)
+                                                                        setToggleOptions(!toggleOptions)
+                                                                    }}
+                                                                >
+                                                                    <SlOptions />
+                                                                </button>
+                                                            )}
+                                                        </div>
+                                                        {
+                                                            (toggleOptions && selected == index) && (
+                                                                <div className={`absolute w-[180px] z-[90]  bg-white right-12 top-4 p-3 flex-col gap-2 divide-y-2 text-lg rounded-md shadow-md`}>
+                                                                    {
+                                                                        item[1] == 'active' ?
+                                                                            (
+                                                                                <div className='flex gap-1 items-center p-2 pl-1 text-red-500 cursor-pointer'
+                                                                                    onClick={() => {
+                                                                                        deactivateStudent(item[0])
+                                                                                        setToggleOptions(false)
+                                                                                    }}
+                                                                                >
+                                                                                    <TiCancel size={25} />
+                                                                                    <span>Deactivate</span>
+                                                                                </div>
+                                                                            ) : (
+                                                                                <div className='flex gap-2 items-center p-2 text-green-600 cursor-pointer'
+                                                                                    onClick={() => {
+                                                                                        activateStudent(item[0])
+                                                                                        setToggleOptions(false)
+                                                                                    }}
+                                                                                >
+                                                                                    <FaCheck />
+                                                                                    <span>Activate</span>
+                                                                                </div>
+                                                                            )
+                                                                    }
+                                                                    <div className='flex gap-2 items-center text-red-500 p-2 cursor-pointer'
                                                                         onClick={() => {
-                                                                            setSelected(index)
-                                                                            setToggleOptions(!toggleOptions)
+                                                                            setConfirm(true)
+                                                                            setDeletingData([item[0], grade, section])
+                                                                            setToggleOptions(false)
                                                                         }}
                                                                     >
-                                                                        <SlOptions />
-                                                                    </button>
-                                                                )}
-                                                            </div>
-                                                            {
-                                                                (toggleOptions && selected == index) && (
-                                                                    <div className={`absolute w-[180px] z-[90]  bg-white right-12 top-4 p-3 flex-col gap-2 divide-y-2 text-lg rounded-md shadow-md`}>
-                                                                        {
-                                                                            item[1] == 'active' ?
-                                                                                (
-                                                                                    <div className='flex gap-1 items-center p-2 pl-1 text-red-500 cursor-pointer'
-                                                                                        onClick={() => {
-                                                                                            deactivateStudent(item[0])
-                                                                                            setToggleOptions(false)
-                                                                                        }}
-                                                                                    >
-                                                                                        <TiCancel size={25} />
-                                                                                        <span>Deactivate</span>
-                                                                                    </div>
-                                                                                ) : (
-                                                                                    <div className='flex gap-2 items-center p-2 text-green-600 cursor-pointer'
-                                                                                        onClick={() => {
-                                                                                            activateStudent(item[0])
-                                                                                            setToggleOptions(false)
-                                                                                        }}
-                                                                                    >
-                                                                                        <FaCheck />
-                                                                                        <span>Activate</span>
-                                                                                    </div>
-                                                                                )
-                                                                        }
-                                                                        <div className='flex gap-2 items-center text-red-500 p-2 cursor-pointer'
-                                                                            onClick={() => {
-                                                                                setConfirm(true)
-                                                                                setDeletingData([item[0], grade, section])
-                                                                                setToggleOptions(false)
-                                                                            }}
-                                                                        >
-                                                                            <FaTrashAlt />
-                                                                            <span>Delete</span>
-                                                                        </div>
+                                                                        <FaTrashAlt />
+                                                                        <span>Delete</span>
                                                                     </div>
-                                                                )}
-                                                        </td>
-                                                    </tr>
+                                                                </div>
+                                                            )}
+                                                    </td>
+                                                </tr>
                                             )
 
                                             )
