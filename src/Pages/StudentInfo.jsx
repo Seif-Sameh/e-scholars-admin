@@ -47,9 +47,8 @@ const StudentInfo = () => {
                 }
             })
     }
-    const updateAttendance = (id) => {
-        updatedAttendance || updatedDate ? 
-        axios.post("https://e-scholars.com/teacher/student_page/update_attendance.php", { grade: grade, section: section, id: id, session_date: updatedDate, attendance: updatedAttendance }, {withCredentials: true})
+    const updateAttendance = (id, date, attendance) => {
+        axios.post("https://e-scholars.com/teacher/student_page/update_attendance.php", { grade: grade, section: section, id: id, session_date: date, attendance: attendance }, {withCredentials: true})
             .then((res) => res.data)
             .then((data) => {
                 if (data.status == 'OK') {
@@ -64,7 +63,6 @@ const StudentInfo = () => {
                     navigate('/login')
                 }
             })
-        : setEditMode('')
     }
 
     const requestQuizzes = () => {
@@ -207,7 +205,22 @@ const StudentInfo = () => {
                                                     {
                                                         editMode == session[0] ? (
                                                             <button className='bg-[#054bb4] text-white px-4 py-1 rounded-md'
-                                                                onClick={() => updateAttendance(session[0])}
+                                                                onClick={() => { 
+                                                                    if(updatedAttendance && updatedDate){
+                                                                        updateAttendance(session[0], updatedDate, updatedAttendance)
+                                                                    }
+                                                                    else{
+                                                                        if(updatedAttendance != null && updatedDate == ''){
+                                                                            updateAttendance(session[0], session[1], updatedAttendance)
+                                                                        }
+                                                                        else if(updatedAttendance == null && updatedDate != ''){
+                                                                            updateAttendance(session[0], updatedDate, session[2] )
+                                                                        }
+                                                                        else{
+                                                                            setEditMode('')
+                                                                        }
+                                                                    }
+                                                                }}
                                                             >
                                                                 Save
                                                             </button>
