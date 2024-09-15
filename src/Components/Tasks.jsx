@@ -101,7 +101,7 @@ const Tasks = ({ grade, section }) => {
                                         const date = new Date(item.Expire_date * 1000)
                                         return (
                                             item.category == type && (
-                                                <div key={item.id} className='flex w-full justify-between relative '>
+                                                <div key={item.id} className='flex w-full relative '>
                                                     <div className='flex w-[85%] flex-col gap-1 word-break'>
                                                         <div className='w-full flex gap-2'>
                                                             <div className='w-[20px] pt-[5px]'>
@@ -133,7 +133,7 @@ const Tasks = ({ grade, section }) => {
                                                     </div>
                                                     {
                                                         editing && selected == item.id ? (
-                                                            <div className='w-[20px] justify-center flex cursor-pointer select-none'
+                                                            <div className='w-[25px] justify-center flex cursor-pointer select-none'
                                                                 onClick={() => {
                                                                     if (task != '' && expireDate != '') {
                                                                         editTask(item.id, expireDate, task)
