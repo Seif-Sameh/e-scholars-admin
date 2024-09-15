@@ -101,7 +101,7 @@ const Tasks = ({ grade, section }) => {
                                         const date = new Date(item.Expire_date * 1000)
                                         return (
                                             item.category == type && (
-                                                <div key={item.id} className='flex justify-between relative '>
+                                                <div key={item.id} className='flex justify-between gap-3 relative '>
                                                     <div className='flex flex-1 flex-col gap-1'>
                                                         <div className='w-full flex items-center gap-2'>
                                                             <PiDiamondsFourLight size={20} className='text-[#054bb4]' />
