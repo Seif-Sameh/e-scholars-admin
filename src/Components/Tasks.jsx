@@ -102,7 +102,7 @@ const Tasks = ({ grade, section }) => {
                                         return (
                                             item.category == type && (
                                                 <div key={item.id} className='flex w-full justify-between relative '>
-                                                    <div className='flex w-[80%] flex-col gap-1'>
+                                                    <div className='flex w-[85%] flex-col gap-1 word-break'>
                                                         <div className='w-full flex gap-2'>
                                                             <div className='w-[20px] pt-[5px]'>
                                                             <PiDiamondsFourLight size={20} className='text-[#054bb4]' />
