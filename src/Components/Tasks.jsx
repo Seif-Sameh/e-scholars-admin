@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom'
 import { FaPlus } from "react-icons/fa";
-import { VscDebugBreakpointLog } from "react-icons/vsc";
+import { PiDiamondsFourLight } from "react-icons/pi";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaTrashAlt } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
@@ -104,7 +104,7 @@ const Tasks = ({ grade, section }) => {
                                                 <div key={item.id} className='flex justify-between relative '>
                                                     <div className='flex flex-col gap-1'>
                                                         <div className='flex items-center gap-2 w-[80%]'>
-                                                            <VscDebugBreakpointLog size={20} className='text-[#054bb4]' />
+                                                            <PiDiamondsFourLight size={20} className='text-[#054bb4]' />
                                                             {selected == item.id && editing ? (
                                                                 <input type='text' defaultValue={item.task} className='border-2 text-xl w-full border-b-[#054bb4] outline-none border-white rounded-md '
                                                                     onChange={(e) => setTask(e.target.value)}
@@ -116,7 +116,7 @@ const Tasks = ({ grade, section }) => {
                                                         <div className='flex flex-col text-slate-600 pl-7'>
                                                             {selected == item.id && editing ?
                                                                 <div className=' flex gap-2 text-sm mt-1'>
-                                                                    <span>Expires: </span>
+                                                                    <span>Expires on </span>
                                                                     <input type='date' defaultValue={`${date.getFullYear()}-${date.getMonth() <=9 ? `0${date.getMonth()+1}` : date.getMonth()}-${date.getDate()}`}
                                                                         onChange={(e) => {
                                                                             const newDate = new Date(e.target.value).getTime() / 1000
