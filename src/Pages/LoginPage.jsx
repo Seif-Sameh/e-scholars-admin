@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import  image1  from '../assets/image-1.jpg'
-import  image4  from '../assets/image-4.jpg'
+import  image4  from '../assets/image-4.png'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
