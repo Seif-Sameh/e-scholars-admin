@@ -116,8 +116,8 @@ const Tasks = ({ grade, section }) => {
                                                                 <p className='text-xl w-full font-semibold break-words text-wrap'>
                                                                     {item.task && item.task.split(' ').map((item) => {
                                                                     const regex = /(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?\/[a-zA-Z0-9]{2,}|((https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?)|(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})?/g;
-                                                                    return (regex.test(item) ? (<a href={item}>{item}</a>) : item)
-                                                                }).join(' ').toString()}</p>
+                                                                    return (regex.test(item) ? (<a href={item}>{item} </a>) : (<span>{item} </span>))
+                                                                })}</p>
                                                                 </div>
                                                             )}
                                                         </div> 
