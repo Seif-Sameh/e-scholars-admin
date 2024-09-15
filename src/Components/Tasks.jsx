@@ -112,7 +112,7 @@ const Tasks = ({ grade, section }) => {
                                                                     onChange={(e) => setTask(e.target.value)}
                                                                 />
                                                             ) : (
-                                                                <p className='text-xl font-semibold break-words'>{item.task}</p>
+                                                                <p className='text-xl max-w-full font-semibold break-words'>{item.task}</p>
                                                             )}
                                                         </div> 
                                                         <div className='flex w-full flex-col text-slate-600 pl-7'>
