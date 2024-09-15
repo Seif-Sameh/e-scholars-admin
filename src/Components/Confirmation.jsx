@@ -3,7 +3,7 @@ import React from 'react'
 const Confirmation = ({ type, data, handler, cancelHandler }) => {
     return (
         <div className={`top-0 left-0 bg-black bg-opacity-75 w-full h-full flex justify-center items-center z-[90] ${type == 'message' ? 'rounded-t-md absolute' : 'fixed'}`}>
-            <div className={`bg-white ${type == 'message' ? 'w-[90%]' : 'md:w-1/3 max-md:w-[90%]'} flex flex-col gap-8 justify-between rounded-md p-4`}>
+            <div className={`bg-white ${type == 'message' ? 'w-[90%]' : 'md:w-1/3 max-md:w-[90%]'} flex flex-col gap-8 justify-between rounded-md p-5`}>
                 <div className='flex flex-col gap-3'>
                     {type == 'class' && <p className='font-bold text-[#054bb4] text-2xl'>Delete grade {data[0]} section {data[1]}? </p>}
                     {type == 'class' && <p className='text-slate-600'>All data including students, tasks, materials, sessions, and quizes will be permanently deleted </p>}
@@ -18,6 +18,8 @@ const Confirmation = ({ type, data, handler, cancelHandler }) => {
                     {type == 'session' && <p className='text-slate-600' >This session date will be permanently deleted </p>}
                     {type == 'material' && <p className='font-bold text-[#054bb4] text-2xl'>Delete {data[1]}?  </p>}
                     {type == 'material' && <p className='text-slate-600' >This material will be permanently deleted </p>}
+                    {type == 'studentSession' && <p className='font-bold text-[#054bb4] text-2xl'>Reset Student's session?  </p>}
+                    {type == 'studentSession' && <p className='text-slate-600' >This will allow {data[2]} to use a different device.</p>}
                 </div>
 
                 <div className={`flex justify-end gap-6 font-medium ${type == 'message' ? 'text-base' : 'text-lg'}`}>
@@ -37,6 +39,7 @@ const Confirmation = ({ type, data, handler, cancelHandler }) => {
                             type == 'task' && handler(data[0])
                             type == 'session' && handler(data[0])
                             type == 'material' && handler(data[0])
+                            type == 'studentSession' && handler(data[0], data[1], data[2])
                         }}
                     >
                         Confirm
