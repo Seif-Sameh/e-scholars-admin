@@ -62,7 +62,7 @@ const Students = ({ grade, section }) => {
             .then((res) => res.data)
             .then((data) => {
                 if (data.status == 'OK') {
-                    requestStudents()
+                    ResetSession(name)
                 }
             })
             .catch((err)=> {
@@ -77,12 +77,27 @@ const Students = ({ grade, section }) => {
             .then((res) => res.data)
             .then((data) => {
                 if (data.status == 'OK') {
-                    requestStudents()
+                    ResetSession(name)
                     setConfirm(false)
                 }
             })
             .catch((err)=> {
                 if(!err.response.data.authenticated){
+                    navigate('/login')
+                }
+            })
+    }
+
+    const ResetSession = (name) => {
+        const response = axios.post("https://e-scholars.com/teacher/student_page/fuck_student.php", { grade: grade, section: section, student_name: name }, { withCredentials: true })
+            .then((res) => res.data)
+            .then((data) => {
+                if (data.status == 'OK') {
+                    requestStudents()
+                }
+            })
+            .catch((err) => {
+                if (!err.response.data.authenticated) {
                     navigate('/login')
                 }
             })
