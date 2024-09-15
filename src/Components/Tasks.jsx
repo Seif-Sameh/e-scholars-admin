@@ -112,7 +112,7 @@ const Tasks = ({ grade, section }) => {
                                                             ) : (
                                                                 <p className='text-xl font-semibold'>{item.task}</p>
                                                             )}
-                                                        </div>
+                                                        </div> 
                                                         <div className='flex flex-col text-slate-600 pl-7'>
                                                             {selected == item.id && editing ?
                                                                 <div className=' flex gap-2 text-sm mt-1'>
