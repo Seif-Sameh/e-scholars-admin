@@ -291,7 +291,7 @@ const StudentInfo = () => {
                     </div>
                     <div className='w-full flex justify-end mt-4'>
                         <button className='w-fit bg-white px-2 py-1 text-red-500 border-2 border-red-500 rounded-md'
-                            onClick={() => ResetSession()}
+                            onClick={() => setConfirm(true)}
                         >Reset Student Session</button>
                     </div>
                 </div>
