@@ -102,7 +102,7 @@ const Tasks = ({ grade, section }) => {
                                         return (
                                             item.category == type && (
                                                 <div key={item.id} className='flex w-full relative justify-between'>
-                                                    <div className='flex w-[85%] flex-col gap-1 word-break'>
+                                                    <div className='flex w-[90%] flex-col gap-1'>
                                                         <div className='w-full flex gap-2'>
                                                             <div className='w-[20px] pt-[5px]'>
                                                             <PiDiamondsFourLight size={20} className='text-[#054bb4]' />
@@ -112,7 +112,7 @@ const Tasks = ({ grade, section }) => {
                                                                     onChange={(e) => setTask(e.target.value)}
                                                                 />
                                                             ) : (
-                                                                <div className='w-full'>
+                                                                <div className='w-[90%]'>
                                                                 <p className='text-xl w-full font-semibold break-words text-wrap'>{item.task}</p>
                                                                 </div>
                                                             )}
