@@ -192,7 +192,7 @@ const StudentInfo = () => {
                                                             </>
                                                         ): (
                                                             <>
-                                                            {session[2] == '1' ? (
+                                                            {session[2] == 1 ? (
                                                                 <FaCheck className='text-green-500 inline-block' />
                                                             ) : (
                                                                 <FaTimes className='text-red-500 inline-block' />
@@ -206,7 +206,7 @@ const StudentInfo = () => {
                                                         editMode == session[0] ? (
                                                             <button className='bg-[#054bb4] text-white px-4 py-1 rounded-md'
                                                                 onClick={() => { 
-                                                                    if(updatedAttendance && updatedDate){
+                                                                    if(updatedAttendance != null && updatedDate != ''){
                                                                         updateAttendance(session[0], updatedDate, updatedAttendance)
                                                                     }
                                                                     else{
