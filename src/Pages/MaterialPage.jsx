@@ -44,11 +44,11 @@ const MaterialPage = () => {
     }, [params.grade, params.section, params.item_id]);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div className='text-white'>Loading...</div>;
     }
 
     if (error) {
-        return <div>{error}</div>;
+        return <div className='text-white'>{error}</div>;
     }
 
     return (
