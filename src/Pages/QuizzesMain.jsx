@@ -87,7 +87,7 @@ const QuizzesMain = () => {
                         found && quizzes.map((item, index) => (
                             <div key={index} className='relative group lg:transition lg:ease-in-out lg:delay-150 lg:hover:-translate-y-1 lg:hover:scale-110 lg:duration-300'>
                                 <Link to={`/quizzes/quiz/${item.quiz_id}`}>
-                                    <div className='w-full h-[200px] flex flex-col gap-3 justify-center items-center bg-white  rounded-md cursor-pointer '>
+                                    <div className='w-full h-[200px] flex flex-col gap-3 justify-center items-center bg-white px-3 rounded-md cursor-pointer '>
                                         <IoMdStopwatch size={80} className='text-[#054bb4]' />
                                         <p className='text-xl font-black text-[#054bb4]'>{item.title}</p>
                                     </div>
