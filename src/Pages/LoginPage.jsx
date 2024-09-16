@@ -75,7 +75,7 @@ const LoginPage = () => {
                     <p className='text-lg font-semibold text-[#054bb4] mt-6'>Mrs/ Randa Mohamed</p>
                 </div>
                 <div className='md:w-1/2 w-full md:h-full h-1/3'>
-                    <img src={image1} alt="" className='w-full h-full max-md:hidden rounded-l-md object-cover'/>
+                    <img src={image1} alt="" className='w-full h-full max-md:hidden rounded-l-md object-cover object-top'/>
                     <img src={image4} alt="" className='w-full h-full md:hidden rounded-t-md object-cover'/>
                 </div>
             </div>
