@@ -17,7 +17,6 @@ const AddClass = () => {
   const [description, setDescription] = useState('')
   const [addedSuccess, setAddedSuccess] = useState(false)
   const [invalidType, setInvalidType] = useState(false)
-  const [errorMessage, setErrorMessage] = useState(false)
   const [progress, setProgress] = useState(0)
   const [uploadStatus, setUploadStatus] = useState(0)
 
@@ -46,12 +45,6 @@ const AddClass = () => {
           if (data.status == 'OK') {
             setAddedSuccess(true)
           }
-          else if (data.status == 'error' && data.message == 'Student name already exists') {
-            setExistingStudent(true)
-          }
-          else {
-            setErrorMessage(data.message)
-          }
         })
         .catch((err)=> {
           if(!err.response.data.authenticated){
@@ -77,12 +70,6 @@ const AddClass = () => {
         .then((data) => {
           if (data.status == 'OK') {
             setAddedSuccess(true)
-          }
-          else if (data.status == 'error' && data.message == 'Student name already exists') {
-            setExistingStudent(true)
-          }
-          else {
-            setErrorMessage(data.message)
           }
         })
         .catch((err)=> {
