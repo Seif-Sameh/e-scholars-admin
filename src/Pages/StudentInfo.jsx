@@ -86,7 +86,7 @@ const StudentInfo = () => {
     }
     const addBonus = () => {
         if (!isNaN(bonus)) {
-            const response = axios.post("https://e-scholars.com/teacher/student_page/fuck_student.php", { grade: grade, section: section, student_name: state.student_name}, { withCredentials: true })
+            const response = axios.post("https://e-scholars.com/teacher/student_page/give_bonus.php", { grade: grade, section: section, student_name: state.student_name}, { withCredentials: true })
                 .then((res) => res.data)
                 .then((data) => {
                     if (data.status == 'OK') {
