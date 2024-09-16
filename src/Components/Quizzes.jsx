@@ -189,7 +189,7 @@ const Quizzes = () => {
                                                 </div>
                                             </div>
                                             <p className='text-center text-lg font-bold'>{item.title}</p>
-                                            <p className='text-start text-slate-500 text-sm font-medium'>{item.description}</p>
+                                            <p className='text-center text-slate-500 text-sm font-medium'>{item.description}</p>
 
                                         </Link>
 
