@@ -24,16 +24,16 @@ const AddClass = () => {
         if (data.status == 'OK') {
           setAddedSuccess(true)
         }
-        else if(data.status == 'error' && data.message == 'Student name already exists'){
-          setExistingStudent(true)
-        }
-        else{
-          setErrorMessage(data.message)
-        }
       })
       .catch((err)=> {
         if(!err.response.data.authenticated){
             navigate('/login')
+        }
+        else if(err.response.data.status == 'error' && err.response.data.message == 'Student name already exists'){
+          setExistingStudent(true)
+        }
+        else{
+          setErrorMessage(data.message)
         }
     })
   }
