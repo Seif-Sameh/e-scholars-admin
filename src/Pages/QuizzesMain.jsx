@@ -89,7 +89,7 @@ const QuizzesMain = () => {
                                 <Link to={`/quizzes/quiz/${item.quiz_id}`}>
                                     <div className='w-full h-[200px] flex flex-col gap-3 justify-center items-center bg-white px-5 rounded-md cursor-pointer '>
                                         <IoMdStopwatch size={80} className='text-[#054bb4]' />
-                                        <p className='text-xl font-black text-[#054bb4]'>{item.title}</p>
+                                        <p className='text-xl font-bold text-[#054bb4]'>{item.title}</p>
                                     </div>
                                 </Link>
                                 <BsThreeDotsVertical size={35} className='absolute z-[80] text-[#054bb4] top-2 right-2 cursor-pointer hover:bg-slate-200 p-2 rounded-full'
