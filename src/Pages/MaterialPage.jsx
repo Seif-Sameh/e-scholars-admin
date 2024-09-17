@@ -52,12 +52,12 @@ const MaterialPage = () => {
     }
 
     return (
-        <div className='w-screen min-h-screen h-full flex justify-center items-center overflow-y-scroll bg-black'>
+        <div className='w-screen h-screen flex justify-center items-center overflow-y-scroll bg-black'>
             {state.type == 'YouTube' && (
                 <iframe src={`https://www.youtube.com/embed/${url.slice(17, 28)}`} className='w-full lg:h-full sm:h-[500px] max-sm:h-[300px]' allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             )}
             {state.type == 'Image' && (<img src={url} alt=""/>)}
-            {state.type == 'PDF' && (<iframe src={`https://docs.google.com/viewer?url=${url}&embedded=true`} className='w-screen h-full' frameborder="0"></iframe>)}
+            {state.type == 'PDF' && (<iframe src={`https://docs.google.com/viewer?url=${url}&embedded=true`} className='w-full h-full' frameborder="0"></iframe>)}
             {state.type == 'Audio' && (<audio src={`${url}`} autoPlay controls controlsList="nodownload" className='w-[300px] h-[60px]'></audio>)}
         </div>
     );
