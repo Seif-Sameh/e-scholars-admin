@@ -57,7 +57,7 @@ const MaterialPage = () => {
                 <iframe src={`https://www.youtube.com/embed/${url.slice(17, 28)}`} className='w-full lg:h-full sm:h-[500px] max-sm:h-[300px]' allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             )}
             {state.type == 'Image' && (<img src={url} alt=""/>)}
-            {state.type == 'PDF' && (<iframe src={`https://docs.google.com/viewer?url=${url}&embedded=true`} className='w-full h-full' frameborder="0"></iframe>)}
+            {state.type == 'PDF' && (<iframe src={`https://docs.google.com/viewer?url=${url}&embedded=true`} className='w-full h-full' style={{ maxWidth: '100%', maxHeight: '100%', width: '100vw', height: '100vh' }} frameborder="0"></iframe>)}
             {state.type == 'Audio' && (<audio src={`${url}`} autoPlay controls controlsList="nodownload" className='w-[300px] h-[60px]'></audio>)}
         </div>
     );
